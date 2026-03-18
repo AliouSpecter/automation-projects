@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -ExecutionPolicy Bypass -File \".tmp\\\\get_errors.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".tmp\\\\read_error.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".tmp\\\\read_node_error.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".tmp\\\\inspect_review_agent.ps1\")"
+    ]
+  }
+}

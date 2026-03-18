@@ -1,0 +1,25 @@
+node_modules/
+.git/
+dist/
+build/
+*.log
+*.mp3
+*.mp4
+image_*.png
+
+# Fichiers temporaires Claude
+tmpclaude-*
+
+# CV générés (PDFs)
+cv/generated/
+
+# Dossier temporaire — tout est régénérable
+.tmp/
+
+# Workflows n8n exportés (gros JSON, inutiles à lire)
+LinkedIn Post Aliou_V2_LATEST.json
+LinkedIn Post Aliou_V2_FIXED.json
+LinkedIn Post Aliou_V2_CURRENT.json
+B2B LinkedIn Ads Creative Original Design.json
+notion_valid_emails_report.json
+workflows/email_enrichment_hunter.json

@@ -1,0 +1,219 @@
+# ═══════════════════════════════════════════════════════════
+# PROFILS DE CANDIDATURE — Aliou BA
+# Basé sur l'analyse des 15 versions CV (FR + EN)
+# ═══════════════════════════════════════════════════════════
+
+# LOGIQUE DE DÉCISION (résumé rapide)
+# paid_acquisition  → "paid", "acquisition", "ROAS", "CPA", "SMA", "paid social", "media buyer"
+# traffic_manager   → "traffic", "trafic", "SEA", "campagnes digitales" (DEFAULT si ambigu)
+# growth_manager    → "growth" + produit/rétention/CRO/pipeline sales (usage avec précaution)
+# digital_marketing → titre généraliste "digital marketing manager" ou "responsable acquisition"
+# english_profile   → offre en anglais → adapter title + contenu
+
+# ───────────────────────────────────────────────────────────
+# PROFIL 1 : Traffic Manager (DEFAULT)
+# Meilleur taux de retour — utiliser par défaut sauf signal fort
+# ───────────────────────────────────────────────────────────
+
+traffic_manager:
+  title_fr: "Traffic Manager"
+  title_variants_fr:
+    - "Traffic Manager"
+    - "Responsable SEA"
+    - "Chargé de campagnes digitales senior"
+  tagline_fr: "Pilotage des campagnes paid media et optimisation du trafic d'acquisition"
+  accroche_key: "paid_traffic"
+  mission_tags: [traffic, paid]
+  mission_priority_threshold: 2
+  highlight_skills: [paid_media, analytics, cro_ab]
+  tools_highlight: ["Google Ads Editor", "Google Analytics 4", "Looker Studio", "Meta Ads", "GTM"]
+  decision_keywords_fr:
+    - "traffic manager"
+    - "trafic"
+    - "traffic"
+    - "SEA"
+    - "campagnes digitales"
+    - "acquisition payante"
+    - "inbound"
+    - "référencement payant"
+    - "responsable SEA"
+    - "chargé de campagnes"
+  positioning_note: >
+    Profil par défaut. Met en avant la gestion multi-canal (Google + Meta + LinkedIn + Affiliation),
+    le pilotage de budget et les KPI acquisition (CPA, ROAS, CPL).
+    Adapté : e-commerce, scale-up, agences, PME avec stack paid.
+
+# ───────────────────────────────────────────────────────────
+# PROFIL 2 : Paid Acquisition Specialist
+# Signal fort : "paid", "acquisition", "ROAS", "CPA", "performance"
+# ───────────────────────────────────────────────────────────
+
+paid_acquisition:
+  title_fr: "Paid Acquisition Specialist"
+  title_variants_fr:
+    - "Paid Acquisition Specialist"
+    - "Paid Acquisition Manager"
+    - "Responsable acquisition digitale"
+    - "Paid Media Manager"
+    - "Paid Media Manager EMEA"
+  tagline_fr: "Expert paid media multi-canal : Google Ads, LinkedIn Ads, Meta Ads"
+  accroche_key: "paid_traffic"
+  mission_tags: [paid, traffic]
+  mission_priority_threshold: 2
+  highlight_skills: [paid_media, analytics, cro_ab]
+  tools_highlight: ["Google Ads Editor", "LinkedIn Ads Manager", "Meta Ads", "Google Analytics 4", "Looker Studio"]
+  decision_keywords_fr:
+    - "paid acquisition"
+    - "paid media"
+    - "acquisition specialist"
+    - "performance marketing"
+    - "ROAS"
+    - "CPA"
+    - "SMA"
+    - "paid social"
+    - "paid search"
+    - "campagnes performance"
+    - "media buyer"
+    - "responsable paid"
+    - "paid manager"
+    - "EMEA"
+  positioning_note: >
+    Profil expert paid. Met en avant la profondeur technique Google + LinkedIn + Meta,
+    la gestion de budgets significatifs (>1.5M€/an), l'optimisation CPL/ROAS.
+    Adapté : DTC, SaaS B2B, marketplace, fintech, scaleup avec forte dépense paid.
+
+# ───────────────────────────────────────────────────────────
+# PROFIL 3 : Growth Manager
+# Signal fort : "growth" + produit/rétention/CRO/pipeline/cross-fonctionnel
+# Utiliser avec précaution — voir note
+# ───────────────────────────────────────────────────────────
+
+growth_manager:
+  title_fr: "Growth Manager"
+  title_variants_fr:
+    - "Growth Manager"
+    - "Growth Marketing Manager"
+    - "Responsable acquisition"
+    - "Responsable Growth"
+  tagline_fr: "Stratégie d'acquisition et optimisation cross-canal orientée croissance"
+  accroche_key: "growth"
+  mission_tags: [growth, traffic, paid]
+  mission_priority_threshold: 3
+  highlight_skills: [paid_media, cro_ab, growth_crm, ai_automation]
+  tools_highlight: ["HubSpot", "Hotjar", "Google Ads Editor", "LinkedIn Ads Manager", "GA4", "n8n", "Zapier"]
+  decision_keywords_fr:
+    - "growth manager"
+    - "growth hacking"
+    - "growth marketing"
+    - "acquisition et rétention"
+    - "CRO"
+    - "expérimentation"
+    - "A/B test"
+    - "funnel"
+    - "product-led growth"
+    - "cross-canal"
+    - "lifecycle"
+    - "MQL"
+    - "pipeline"
+    - "nurturing"
+    - "ABM"
+  avoid_keywords:
+    - "product manager"
+    - "chief growth officer"
+  positioning_note: >
+    ATTENTION : n'utiliser que si l'offre mentionne explicitement des dimensions growth
+    (rétention, CRO, pipeline sales, ABM, nurturing, expérimentation).
+    Sans environnement product/sales cross-fonctionnel, ce profil génère moins de retours.
+    Toujours signaler à l'utilisateur si ce profil est choisi et justifier pourquoi.
+    Si doute entre growth et traffic → choisir traffic_manager.
+
+# ───────────────────────────────────────────────────────────
+# PROFIL 4 : Digital Marketing Manager (généraliste)
+# Signal : titre généraliste, besoin de polyvalence, PME/agence
+# ───────────────────────────────────────────────────────────
+
+digital_marketing_manager:
+  title_fr: "Digital Marketing Manager"
+  title_variants_fr:
+    - "Digital Marketing Manager"
+    - "Responsable marketing digital"
+    - "Responsable acquisition"
+    - "Chef de projet digital"
+  tagline_fr: "Pilotage de la stratégie d'acquisition digitale multi-leviers"
+  accroche_key: "generic_senior"
+  mission_tags: [traffic, paid, growth]
+  mission_priority_threshold: 2
+  highlight_skills: [paid_media, analytics, cro_ab]
+  tools_highlight: ["Google Ads Editor", "LinkedIn Ads Manager", "GA4", "Looker Studio", "GTM", "HubSpot"]
+  decision_keywords_fr:
+    - "digital marketing manager"
+    - "responsable marketing digital"
+    - "responsable acquisition"
+    - "chef de projet digital"
+    - "marketing manager"
+  positioning_note: >
+    Profil polyvalent. Adapté aux PME, ETI ou grands groupes cherchant un profil qui couvre
+    paid + analytics + CRO. Moins spécialisé que paid_acquisition mais plus transversal.
+    Utiliser quand le titre de l'offre est généraliste et que les besoins sont variés.
+
+# ───────────────────────────────────────────────────────────
+# VERSION ANGLAISE — déclinaisons des profils EN
+# ───────────────────────────────────────────────────────────
+
+english_profiles:
+  traffic_en:
+    title: "Traffic Manager"
+    tagline: "Paid media management and acquisition traffic optimisation"
+    accroche_key: "paid_traffic_en"
+    mission_tags: [traffic, paid]
+    mission_priority_threshold: 2
+    highlight_skills: [paid_media, analytics, cro_ab]
+
+  paid_acquisition_en:
+    title: "Performance Marketing Manager"
+    title_variants:
+      - "Performance Marketing Manager"
+      - "Paid Acquisition Manager"
+      - "Paid Media Manager"
+      - "Paid Social & Creative Manager"
+    tagline: "Multi-channel paid media expert: Google Ads, LinkedIn Ads, Meta Ads"
+    accroche_key: "paid_traffic_en"
+    mission_tags: [paid, traffic]
+    mission_priority_threshold: 2
+    highlight_skills: [paid_media, analytics, cro_ab]
+
+  growth_en:
+    title: "Growth Marketing Manager"
+    title_variants:
+      - "Growth Marketing Manager"
+      - "Group Digital Marketing Manager"
+      - "Digital Marketing Manager"
+    tagline: "Growth and performance marketing specialist"
+    accroche_key: "growth_en"
+    mission_tags: [growth, traffic, paid]
+    mission_priority_threshold: 3
+    highlight_skills: [paid_media, cro_ab, growth_crm, ai_automation]
+
+# ───────────────────────────────────────────────────────────
+# TABLEAU DE DÉCISION RAPIDE
+# ───────────────────────────────────────────────────────────
+
+decision_table:
+  - signal: "paid / acquisition / ROAS / CPA / SMA / paid social / media buyer / performance"
+    profile: "paid_acquisition"
+    confidence: "high"
+  - signal: "traffic / trafic / SEA / campagnes / responsable SEA / acquisition payante"
+    profile: "traffic_manager"
+    confidence: "high"
+  - signal: "growth + (product / rétention / CRO / funnel / pipeline / ABM / nurturing)"
+    profile: "growth_manager"
+    confidence: "medium — vérifier contexte"
+  - signal: "digital marketing manager / responsable marketing / chef de projet digital"
+    profile: "digital_marketing_manager"
+    confidence: "medium"
+  - signal: "ambigu ou mélangé"
+    profile: "traffic_manager"
+    confidence: "default — signaler à l'utilisateur"
+  - signal: "offre en anglais"
+    profile: "english_profiles (choisir la variante selon les signaux ci-dessus)"
+    confidence: "apply same logic in English"

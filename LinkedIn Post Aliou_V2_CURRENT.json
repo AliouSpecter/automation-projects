@@ -1,0 +1,944 @@
+﻿{
+    "updatedAt":  "2026-03-02T12:03:30.825Z",
+    "createdAt":  "2026-03-02T10:14:06.009Z",
+    "id":  "BoxM5KzpOK5PmVpg",
+    "name":  "LinkedIn Post Aliou_V2",
+    "description":  null,
+    "active":  false,
+    "isArchived":  false,
+    "nodes":  [
+                  {
+                      "parameters":  {
+                                         "updates":  [
+                                                         "message",
+                                                         "inline_query",
+                                                         "callback_query"
+                                                     ],
+                                         "additionalFields":  {
+                                                                  "chatIds":  "1982654040",
+                                                                  "userIds":  "1982654040"
+                                                              }
+                                     },
+                      "type":  "n8n-nodes-base.telegramTrigger",
+                      "typeVersion":  1.2,
+                      "position":  [
+                                       0,
+                                       0
+                                   ],
+                      "id":  "9e58f086-adee-498d-b049-49772141cecc",
+                      "name":  "Telegram Trigger",
+                      "webhookId":  "21bf4a39-e027-47ab-a7d1-e56fca6d1f1a",
+                      "credentials":  {
+                                          "telegramApi":  {
+                                                              "id":  "useURK6OWa1KC1X5",
+                                                              "name":  "Aliou_LinkedInBot"
+                                                          }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "rules":  {
+                                                       "values":  [
+                                                                      {
+                                                                          "conditions":  {
+                                                                                             "options":  {
+                                                                                                             "caseSensitive":  true,
+                                                                                                             "leftValue":  "",
+                                                                                                             "typeValidation":  "strict",
+                                                                                                             "version":  2
+                                                                                                         },
+                                                                                             "conditions":  [
+                                                                                                                {
+                                                                                                                    "leftValue":  "={{ $json.message.voice }}",
+                                                                                                                    "rightValue":  "",
+                                                                                                                    "operator":  {
+                                                                                                                                     "type":  "object",
+                                                                                                                                     "operation":  "exists",
+                                                                                                                                     "singleValue":  true
+                                                                                                                                 },
+                                                                                                                    "id":  "1dcac2d3-7be4-4947-8080-a5dbec552acf"
+                                                                                                                }
+                                                                                                            ],
+                                                                                             "combinator":  "and"
+                                                                                         },
+                                                                          "renameOutput":  true,
+                                                                          "outputKey":  "Voice message"
+                                                                      },
+                                                                      {
+                                                                          "conditions":  {
+                                                                                             "options":  {
+                                                                                                             "caseSensitive":  true,
+                                                                                                             "leftValue":  "",
+                                                                                                             "typeValidation":  "strict",
+                                                                                                             "version":  2
+                                                                                                         },
+                                                                                             "conditions":  [
+                                                                                                                {
+                                                                                                                    "id":  "2d84acb4-2f8b-4d3b-b8f0-72e86853b1d1",
+                                                                                                                    "leftValue":  "={{ $json.message.voice }}",
+                                                                                                                    "rightValue":  "",
+                                                                                                                    "operator":  {
+                                                                                                                                     "type":  "object",
+                                                                                                                                     "operation":  "notExists",
+                                                                                                                                     "singleValue":  true
+                                                                                                                                 }
+                                                                                                                }
+                                                                                                            ],
+                                                                                             "combinator":  "and"
+                                                                                         },
+                                                                          "renameOutput":  true,
+                                                                          "outputKey":  "Text message"
+                                                                      }
+                                                                  ]
+                                                   },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.switch",
+                      "typeVersion":  3.3,
+                      "position":  [
+                                       208,
+                                       0
+                                   ],
+                      "id":  "8142fa44-5852-4d9d-8de9-3bb8882da9a1",
+                      "name":  "Check message format"
+                  },
+                  {
+                      "parameters":  {
+                                         "resource":  "file",
+                                         "fileId":  "={{ $json.message.voice.file_id }}",
+                                         "additionalFields":  {
+
+                                                              }
+                                     },
+                      "type":  "n8n-nodes-base.telegram",
+                      "typeVersion":  1.2,
+                      "position":  [
+                                       448,
+                                       -160
+                                   ],
+                      "id":  "46aee17b-4e1d-4eab-9036-c44edccb7842",
+                      "name":  "Get a file",
+                      "webhookId":  "2c84dd75-2c44-4a35-ada1-65145868ad6c",
+                      "credentials":  {
+                                          "telegramApi":  {
+                                                              "id":  "useURK6OWa1KC1X5",
+                                                              "name":  "Aliou_LinkedInBot"
+                                                          }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "resource":  "audio",
+                                         "operation":  "transcribe",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "@n8n/n8n-nodes-langchain.openAi",
+                      "typeVersion":  2,
+                      "position":  [
+                                       640,
+                                       -160
+                                   ],
+                      "id":  "b08b4084-6dcd-49b7-be43-da691e3f556f",
+                      "name":  "Transcribe a recording",
+                      "credentials":  {
+                                          "openAiApi":  {
+                                                            "id":  "AAdiZuOyHZBM2kJP",
+                                                            "name":  "OpenAi account"
+                                                        }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "modelId":  {
+                                                         "__rl":  true,
+                                                         "value":  "claude-sonnet-4-20250514",
+                                                         "mode":  "list",
+                                                         "cachedResultName":  "claude-sonnet-4-20250514"
+                                                     },
+                                         "messages":  {
+                                                          "values":  [
+                                                                         {
+                                                                             "content":  "={{ $json.text }}"
+                                                                         },
+                                                                         {
+                                                                             "content":  "=# ROLE\n\nYou are a writing assistant helping me turn real automation work into clear, authoritative LinkedIn posts in French.\n\nYou do not invent results, metrics, clients, or scenarios.\nYou only use what is explicitly or implicitly present in my input.\n\n# CONTEXT\n\nI design and deploy real automations using n8n and connected tools.\n\nMy approach is simple:\nI avoid adding new tools whenever possible.\nI connect and orchestrate what already exists to simplify operations without multiplying subscriptions.\n\nI share:\n\n* systems I built\n* architectures I designed\n* optimizations I implemented\n* concrete operational improvements\n* visual proof (screenshots or short videos)\n\nI do not share theory.\nI do not create fictional case studies.\n\n# TASK\n\nWrite a LinkedIn post strictly based on the provided input.\n\nIf the input begins with \"RAW:\", output the message as-is (remove only the \"RAW:\" prefix). If that raw message is in English, translate it to French.\n\nIf the input does not describe a real automation, system, or improvement, write nothing.\n\nIf the input is incomplete:\n\n* do not invent\n* keep only what is certain\n\n# POST FORMATS\n\nThe post should naturally follow one of these formats depending on the input:\n\n---\n\n## 1 - Concrete result\n\nUse when the input describes a system that produced a clear operational improvement.\n\nStructure:\n\n* Business situation\n* Automation built\n* What changed concretely\n\nExample structure:\n\"Un process manuel prenait du temps.\nSans ajouter des outils. \nJ\u0027ai connect� X � Y via n8n. \nR�sultat : le syst�me est devenu .\"\n\n---\n\n## 2 - Architecture logic\n\nUse when the input explains how the system is structured.\n\nStructure:\n\n* Objective\n* Tools connected\n* Why this structure\n* What it avoids or enables\n\nExample structure:\n\"Pour g�rer .\nJ\u0027ai structur� le workflow ainsi :\nNotion ? n8n ? OpenAI ? CRM.\nL\u0027objectif n\u0027�tait pas d\u0027ajouter des outils.\nMais d\u0027orchestrer l\u0027existant.\"\n\n---\n\n## 3 - Optimization\n\nUse when improving an existing workflow.\n\nStructure:\n\n* Initial setup\n* Limitation\n* Adjustment made\n* Gain obtained\n\nExample structure:\n\"Le workflow faisait d�j� .\nMais il manquait .\nJ\u0027ai ajust� .\nDepuis, le syst�me est plus .\"\n\n---\n\n## 4 - Proof-based post\n\nUse when there is a screenshot or video.\n\nStructure:\n\n* What the image shows\n* Why it matters\n* What it demonstrates\n\nExample structure:\n\"Dans la capture ci-dessous :\n- g�n�ration automatique\n- validation\n- publication\nCe qui compte ici n\u0027est pas l\u0027outil.\nC\u0027est la logique d\u0027orchestration.\"\n\n---\n\n# WRITING GUIDELINES\n\n* First person\n* Confident but calm\n* Operational tone\n* No hype\n* No exaggerated claims\n* No marketing language\n* No emojis\n* Keep technical depth light\n* Focus on system thinking and business impact\n\nYou may naturally end with:\n\"Si tu veux le tester sur tes propres donn�es, je peux te le partager.\"\n\nDo not force this sentence.\n\n# STYLE RULES\n\n* Short paragraphs (1-3 sentences max)\n* Sentence case only\n* No hashtags\n* No markdown\n* No explanations\n* Output only the LinkedIn post\n\n# OUTPUT FORMAT\nAt the START of your response, add exactly ONE line:\n[TYPE: Concrete result]\nOR [TYPE: Architecture]\nOR [TYPE: Optimization] \nOR [TYPE: Proof-based]\n\nThen write the post normally below that line."
+                                                                         }
+                                                                     ]
+                                                      },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "@n8n/n8n-nodes-langchain.anthropic",
+                      "typeVersion":  1,
+                      "position":  [
+                                       1344,
+                                       16
+                                   ],
+                      "id":  "256b166f-d21e-45cb-ba39-b3a8dfa50a3c",
+                      "name":  "Write the post",
+                      "credentials":  {
+                                          "anthropicApi":  {
+                                                               "id":  "5JxCEGCMxT6Tcj9a",
+                                                               "name":  "Claude Account"
+                                                           }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "assignments":  {
+                                                             "assignments":  [
+                                                                                 {
+                                                                                     "id":  "c8b1e168-4667-4458-bfb4-870ddad35aae",
+                                                                                     "name":  "text",
+                                                                                     "value":  "={{ $json.text }}",
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                             ]
+                                                         },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.set",
+                      "typeVersion":  3.4,
+                      "position":  [
+                                       1152,
+                                       16
+                                   ],
+                      "id":  "c4b324e0-903d-4649-9804-322936b3572b",
+                      "name":  "Set the raw input"
+                  },
+                  {
+                      "parameters":  {
+                                         "assignments":  {
+                                                             "assignments":  [
+                                                                                 {
+                                                                                     "id":  "747be636-1d4b-4707-831f-9c7ed0a3dc87",
+                                                                                     "name":  "post",
+                                                                                     "value":  "={{ $json.content[0].text }}",
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                             ]
+                                                         },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.set",
+                      "typeVersion":  3.4,
+                      "position":  [
+                                       1712,
+                                       16
+                                   ],
+                      "id":  "29a669da-9c8f-439b-a93d-686ca8598b29",
+                      "name":  "Set the post"
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "sendAndWait",
+                                         "chatId":  "={{ $(\u0027Telegram Trigger\u0027).item.json.message.chat.id }}",
+                                         "message":  "=Post to review :\n{{ $json.post }}",
+                                         "responseType":  "freeText",
+                                         "options":  {
+                                                         "appendAttribution":  false
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.telegram",
+                      "typeVersion":  1.2,
+                      "position":  [
+                                       2016,
+                                       16
+                                   ],
+                      "id":  "adb94a9a-9254-40f7-ae0a-1a27b4dff09d",
+                      "name":  "Validate the text",
+                      "webhookId":  "60fbafcd-b04b-4ff8-9720-052587fa8393",
+                      "credentials":  {
+                                          "telegramApi":  {
+                                                              "id":  "useURK6OWa1KC1X5",
+                                                              "name":  "Aliou_LinkedInBot"
+                                                          }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "inputText":  "={{ $json.data.text }}",
+                                         "categories":  {
+                                                            "categories":  [
+                                                                               {
+                                                                                   "category":  "Approved",
+                                                                                   "description":  "The post has been reviewed and is ready to be published as-is. The human explicitly or implicitly confirms that no changes are needed.  \n\nExample phrases include:  \n\"approved\" \n\"looks good\" \n\"ok for posting\" \n\"this is fine\"\n\"you can post it\" \n\"no changes needed\""
+                                                                               },
+                                                                               {
+                                                                                   "category":  "To improve",
+                                                                                   "description":  "The post has been reviewed but requires changes before publishing. \nThe human requests edits, clarifications, or improvements to the content.  \n\nExample phrases include:  \"needs changes\" \n\"rewrite this part\" \n\"too generic\"\n\"make it more technical\"  \n\"clarify this section\" \n\"I\u0027m not convinced\" \n\"can you improve this?"
+                                                                               }
+                                                                           ]
+                                                        },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "@n8n/n8n-nodes-langchain.textClassifier",
+                      "typeVersion":  1.1,
+                      "position":  [
+                                       2208,
+                                       16
+                                   ],
+                      "id":  "503bd826-1da4-4d38-ae8e-b121c3cfcd9a",
+                      "name":  "Text Classifier"
+                  },
+                  {
+                      "parameters":  {
+                                         "modelId":  {
+                                                         "__rl":  true,
+                                                         "value":  "claude-sonnet-4-20250514",
+                                                         "mode":  "list",
+                                                         "cachedResultName":  "claude-sonnet-4-20250514"
+                                                     },
+                                         "messages":  {
+                                                          "values":  [
+                                                                         {
+                                                                             "content":  "=Here is the post to revise:\n{{ $(\u0027Set the post\u0027).item.json.post }}\n\nHere is the human feedback:\n{{ $json.data.text }}\n"
+                                                                         },
+                                                                         {
+                                                                             "content":  "=You are a review and revision assistant for LinkedIn posts.\n\nYour role is to revise an existing LinkedIn post strictly based on human feedback.\nYou do not invent new experiences, examples, or claims.\nYou only modify what the human explicitly or implicitly asked to improve.\n\n#Context:\nThe post comes from real build work on AI agents and automations using n8n.\nThe tone must remain:\n- first person\n- honest\n- builder-focused\n- non-marketing\n- non-hype\n\n#Rules:\n- Do NOT rewrite the entire post unless the feedback clearly asks for it.\n- Preserve the original intent, experience, and facts.\n- Apply the feedback as literally as possible.\n- If the feedback is vague, make the smallest reasonable change.\n- Do not add advice, lessons, or conclusions unless requested.\n- Do not add emojis, hashtags, or calls to action.\n- Keep short paragraphs and sentence case.\n- Do not explain your changes.\n\n\n#Output rules:\n- Output only the revised LinkedIn post.\n- No explanations.\n- No markdown.\n- No JSON.\n- No labels or headings.",
+                                                                             "role":  "assistant"
+                                                                         }
+                                                                     ]
+                                                      },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "@n8n/n8n-nodes-langchain.anthropic",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2656,
+                                       224
+                                   ],
+                      "id":  "c70ce73e-53bd-4f76-bfdc-9ff03e3031e5",
+                      "name":  "Review Agent",
+                      "credentials":  {
+                                          "anthropicApi":  {
+                                                               "id":  "5JxCEGCMxT6Tcj9a",
+                                                               "name":  "Claude Account"
+                                                           }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "model":  {
+                                                       "__rl":  true,
+                                                       "mode":  "list",
+                                                       "value":  "gpt-4.1-mini"
+                                                   },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+                      "typeVersion":  1.2,
+                      "position":  [
+                                       2208,
+                                       256
+                                   ],
+                      "id":  "0a7fecb0-9bbc-4f33-8630-b6a5ae19b508",
+                      "name":  "OpenAI Chat Model",
+                      "credentials":  {
+                                          "openAiApi":  {
+                                                            "id":  "AAdiZuOyHZBM2kJP",
+                                                            "name":  "OpenAi account"
+                                                        }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "content":  "## INPUT CAPTURE \u0026 NORMALIZATION\n\n- Receive Telegram messages (voice or text), transcribe audio when needed\n- standardize everything into a single raw text input for downstream processing.",
+                                         "height":  512,
+                                         "width":  1040
+                                     },
+                      "type":  "n8n-nodes-base.stickyNote",
+                      "position":  [
+                                       -48,
+                                       -320
+                                   ],
+                      "typeVersion":  1,
+                      "id":  "ef9bac83-5111-438f-93c1-5551b6e762f3",
+                      "name":  "Sticky Note"
+                  },
+                  {
+                      "parameters":  {
+                                         "content":  "## Content generation \u0026 human validation\n\n- Generate a first LinkedIn post draft from the raw input\n-  store it, and send it back to Telegram so the human can review and respond with feedback or approval.",
+                                         "height":  512,
+                                         "width":  736,
+                                         "color":  5
+                                     },
+                      "type":  "n8n-nodes-base.stickyNote",
+                      "position":  [
+                                       1120,
+                                       -320
+                                   ],
+                      "typeVersion":  1,
+                      "id":  "c19c42a8-6ec9-4607-b5d3-c35d75028fd7",
+                      "name":  "Sticky Note1"
+                  },
+                  {
+                      "parameters":  {
+                                         "content":  "## Decision, revision, and publishing\n\n- Interpret human feedback\n- decide whether the post is approved or needs improvement\n- revise the content if required, and publish once validated",
+                                         "height":  880,
+                                         "width":  1680,
+                                         "color":  4
+                                     },
+                      "type":  "n8n-nodes-base.stickyNote",
+                      "position":  [
+                                       1984,
+                                       -400
+                                   ],
+                      "typeVersion":  1,
+                      "id":  "1d38ade5-1d21-4499-9c94-a95e5907f4c7",
+                      "name":  "Sticky Note2"
+                  },
+                  {
+                      "parameters":  {
+                                         "assignments":  {
+                                                             "assignments":  [
+                                                                                 {
+                                                                                     "id":  "085d910d-343d-464b-a8ff-ec05fc155bcb",
+                                                                                     "name":  "text",
+                                                                                     "value":  "={{ \n  $json.content?.[0]?.text\n  ?? $json.text\n  ?? $json.message?.text\n  ?? \u0027\u0027\n}}",
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                             ]
+                                                         },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.set",
+                      "typeVersion":  3.4,
+                      "position":  [
+                                       880,
+                                       16
+                                   ],
+                      "id":  "89e651b3-e5d3-4f1c-816f-0f34fbea3a3d",
+                      "name":  "Normalize inputs"
+                  },
+                  {
+                      "parameters":  {
+                                         "person":  "V1sKZIU35C",
+                                         "text":  "={{ $(\u0027Set the post\u0027).item.json.post }}",
+                                         "shareMediaCategory":  "IMAGE",
+                                         "binaryPropertyName":  "image",
+                                         "additionalFields":  {
+
+                                                              }
+                                     },
+                      "type":  "n8n-nodes-base.linkedIn",
+                      "typeVersion":  1,
+                      "position":  [
+                                       2976,
+                                       -208
+                                   ],
+                      "id":  "27da8e96-3a24-49cf-9866-b2961cea85e2",
+                      "name":  "Publish in LinkedIn",
+                      "credentials":  {
+                                          "linkedInOAuth2Api":  {
+                                                                    "id":  "FRWAm13EOZnvvUaK",
+                                                                    "name":  "LinkedIn account"
+                                                                }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "assignments":  {
+                                                             "assignments":  [
+                                                                                 {
+                                                                                     "id":  "231caf85-36b8-412c-9426-f9664db70da7",
+                                                                                     "name":  "executionId",
+                                                                                     "value":  "={{$execution.id}}",
+                                                                                     "type":  "string"
+                                                                                 },
+                                                                                 {
+                                                                                     "id":  "36f119dd-a8bd-4f04-9636-c38e1d44e1f9",
+                                                                                     "name":  "workflowName",
+                                                                                     "value":  "={{$workflow.name}}",
+                                                                                     "type":  "string"
+                                                                                 },
+                                                                                 {
+                                                                                     "id":  "c683e2e9-6492-4738-9892-49c31bed268e",
+                                                                                     "name":  "timestamp",
+                                                                                     "value":  "={{$now.toISO()}}",
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                             ]
+                                                         },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.set",
+                      "typeVersion":  3.4,
+                      "position":  [
+                                       3232,
+                                       -208
+                                   ],
+                      "id":  "2e8e05e6-86f5-4689-b14e-c57460e0f02b",
+                      "name":  "Cost data to sent"
+                  },
+                  {
+                      "parameters":  {
+                                         "workflowId":  {
+                                                            "__rl":  true,
+                                                            "value":  "gPGWx0v1BRZ_ZjtMn_9bG",
+                                                            "mode":  "list",
+                                                            "cachedResultUrl":  "/workflow/gPGWx0v1BRZ_ZjtMn_9bG",
+                                                            "cachedResultName":  "COST Logger"
+                                                        },
+                                         "workflowInputs":  {
+                                                                "mappingMode":  "defineBelow",
+                                                                "value":  {
+
+                                                                          },
+                                                                "matchingColumns":  [
+
+                                                                                    ],
+                                                                "schema":  [
+
+                                                                           ],
+                                                                "attemptToConvertTypes":  false,
+                                                                "convertFieldsToString":  true
+                                                            },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.executeWorkflow",
+                      "typeVersion":  1.3,
+                      "position":  [
+                                       3456,
+                                       -208
+                                   ],
+                      "id":  "1c5794b1-bf4d-4ddb-9d70-ce8a3648a534",
+                      "name":  "Call COST logger workflow"
+                  },
+                  {
+                      "parameters":  {
+                                         "operation":  "sendAndWait",
+                                         "chatId":  "={{ $(\u0027Telegram Trigger\u0027).item.json.message.chat.id }}",
+                                         "message":  "Ok. Upload l\u0027image � utiliser pour le post LinkedIn (JPG/PNG).",
+                                         "responseType":  "customForm",
+                                         "formFields":  {
+                                                            "values":  [
+                                                                           {
+                                                                               "fieldLabel":  "image",
+                                                                               "fieldType":  "file",
+                                                                               "requiredField":  true
+                                                                           }
+                                                                       ]
+                                                        },
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.telegram",
+                      "typeVersion":  1.2,
+                      "position":  [
+                                       2688,
+                                       -208
+                                   ],
+                      "id":  "147be5b1-56d6-4c72-af69-a2efc32e7ebc",
+                      "name":  "Get the image",
+                      "webhookId":  "5b48bc74-220d-4bb1-9e0f-46faac3d23d9",
+                      "credentials":  {
+                                          "telegramApi":  {
+                                                              "id":  "useURK6OWa1KC1X5",
+                                                              "name":  "Aliou_LinkedInBot"
+                                                          }
+                                      }
+                  },
+                  {
+                      "parameters":  {
+                                         "functionCode":  "const post = $(\u0027Set the post\u0027).item.json.post;\nconst typeMatch = post.match(/\\[TYPE:\\s*(.+?)\\]/);\nconst postType = typeMatch ? typeMatch[1].trim() : \u0027Concrete result\u0027;\nconst metrics = {\n  currency: post.match(/?\\s*\\d+(?:[.,]\\d+)?|\\d+(?:[.,]\\d+)?\\s*?/gi) || [],\n  times: post.match(/\\d+\\s*(?:h|min|hours?|days?|weeks?)/gi) || [],\n  percentages: post.match(/\\d+\\s*%/gi) || [],\n  numbers: post.match(/\\d+(?:\\s*(?:leads?|conversions?|people|users?))?/gi) || []\n};\nconst extractedMetrics = [...metrics.currency, ...metrics.times, ...metrics.percentages, ...metrics.numbers].slice(0, 4);\nreturn { postType: postType, extractedMetrics: extractedMetrics, fullPost: post };"
+                                     },
+                      "type":  "n8n-nodes-base.code",
+                      "typeVersion":  2,
+                      "position":  [
+                                       2400,
+                                       16
+                                   ],
+                      "id":  "parse-post-metrics-node",
+                      "name":  "Parse Post \u0026 Extract Metrics"
+                  },
+                  {
+                      "parameters":  {
+                                         "assignments":  {
+                                                             "assignments":  [
+                                                                                 {
+                                                                                     "id":  "gen-html-assign",
+                                                                                     "name":  "html_content",
+                                                                                     "value":  "={{ (function(){\nconst postType = $json.postType;\nconst metrics = $json.extractedMetrics || [];\nconst labels = {\n  \u0027Concrete result\u0027: [\u0027Leads\u0027, \u0027Conversion\u0027, \u0027Time Saved\u0027, \u0027Revenue\u0027],\n  \u0027Architecture\u0027: [\u0027Tools\u0027, \u0027Webhooks\u0027, \u0027Automations\u0027, \u0027Status\u0027],\n  \u0027Optimization\u0027: [\u0027Original\u0027, \u0027Optimized\u0027, \u0027Gain\u0027, \u0027Status\u0027],\n  \u0027Proof-based\u0027: [\u0027Executions\u0027, \u0027Success Rate\u0027, \u0027Avg Speed\u0027, \u0027Last Run\u0027]\n};\nconst typeLabels = labels[postType] || labels[\u0027Concrete result\u0027];\nconst metricsHtml = metrics.slice(0, 4).map((value, idx) =\u003e `\u003cdiv class=\"metric\"\u003e\u003cdiv class=\"metric-value\"\u003e${value}\u003c/div\u003e\u003cdiv class=\"metric-label\"\u003e${typeLabels[idx] || \u0027Metric\u0027}\u003c/div\u003e\u003c/div\u003e`).join(\u0027\u0027);\nconst html = `\u003c!DOCTYPE html\u003e\u003chtml\u003e\u003chead\u003e\u003cstyle\u003e* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: \u0027Segoe UI\u0027, sans-serif; height: 630px; width: 1200px; } .container { height: 100%; display: flex; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; } .content { flex: 1; display: flex; flex-direction: column; justify-content: center; } h1 { font-size: 48px; margin-bottom: 10px; font-weight: bold; } .type-badge { font-size: 14px; opacity: 0.85; margin-bottom: 30px; background: rgba(255,255,255,0.15); width: fit-content; padding: 6px 12px; border-radius: 4px; } .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; } .metric { background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px; text-align: center; } .metric-value { font-size: 38px; font-weight: bold; margin-bottom: 8px; } .metric-label { font-size: 13px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; }\u003c/style\u003e\u003c/head\u003e\u003cbody\u003e\u003cdiv class=\"container\"\u003e\u003cdiv class=\"content\"\u003e\u003ch1\u003eAutomation Impact\u003c/h1\u003e\u003cdiv class=\"type-badge\"\u003e${postType}\u003c/div\u003e\u003cdiv class=\"metrics\"\u003e${metricsHtml}\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/body\u003e\u003c/html\u003e`;\nreturn html;\n})() }}",
+                                                                                     "type":  "string"
+                                                                                 }
+                                                                             ]
+                                                         }
+                                     },
+                      "type":  "n8n-nodes-base.set",
+                      "typeVersion":  3.4,
+                      "position":  [
+                                       2640,
+                                       16
+                                   ],
+                      "id":  "gen-html-node",
+                      "name":  "Generate Dashboard HTML"
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "POST",
+                                         "url":  "https://api.htmlcsstoimage.com/convert",
+                                         "authentication":  "headerBasic",
+                                         "headerParameters":  {
+                                                                  "parameters":  [
+                                                                                     {
+                                                                                         "name":  "Authorization",
+                                                                                         "value":  "Bearer 019cae5d-b3ee-7bdf-827d-5024c64f4109"
+                                                                                     }
+                                                                                 ]
+                                                              },
+                                         "body":  "json",
+                                         "jsonBody":  "={{ JSON.stringify({html: $json.html_content, width: 1200, height: 630, device: \u0027desktop\u0027}) }}",
+                                         "responseFormat":  "json"
+                                     },
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       2880,
+                                       16
+                                   ],
+                      "id":  "screenshot-html-node",
+                      "name":  "Screenshot HTML"
+                  },
+                  {
+                      "parameters":  {
+                                         "method":  "GET",
+                                         "url":  "={{ $json.url }}",
+                                         "responseFormat":  "file",
+                                         "options":  {
+
+                                                     }
+                                     },
+                      "type":  "n8n-nodes-base.httpRequest",
+                      "typeVersion":  4.2,
+                      "position":  [
+                                       3120,
+                                       16
+                                   ],
+                      "id":  "download-image-node",
+                      "name":  "Download Image"
+                  }
+              ],
+    "connections":  {
+                        "Telegram Trigger":  {
+                                                 "main":  [
+                                                              [
+                                                                  {
+                                                                      "node":  "Check message format",
+                                                                      "type":  "main",
+                                                                      "index":  0
+                                                                  }
+                                                              ]
+                                                          ]
+                                             },
+                        "Check message format":  {
+                                                     "main":  [
+                                                                  [
+                                                                      {
+                                                                          "node":  "Get a file",
+                                                                          "type":  "main",
+                                                                          "index":  0
+                                                                      }
+                                                                  ],
+                                                                  [
+                                                                      {
+                                                                          "node":  "Normalize inputs",
+                                                                          "type":  "main",
+                                                                          "index":  0
+                                                                      }
+                                                                  ]
+                                                              ]
+                                                 },
+                        "Get a file":  {
+                                           "main":  [
+                                                        [
+                                                            {
+                                                                "node":  "Transcribe a recording",
+                                                                "type":  "main",
+                                                                "index":  0
+                                                            }
+                                                        ]
+                                                    ]
+                                       },
+                        "Transcribe a recording":  {
+                                                       "main":  [
+                                                                    [
+                                                                        {
+                                                                            "node":  "Normalize inputs",
+                                                                            "type":  "main",
+                                                                            "index":  0
+                                                                        }
+                                                                    ]
+                                                                ]
+                                                   },
+                        "Write the post":  {
+                                               "main":  [
+                                                            [
+                                                                {
+                                                                    "node":  "Set the post",
+                                                                    "type":  "main",
+                                                                    "index":  0
+                                                                }
+                                                            ]
+                                                        ]
+                                           },
+                        "Set the raw input":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Write the post",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Set the post":  {
+                                             "main":  [
+                                                          [
+                                                              {
+                                                                  "node":  "Validate the text",
+                                                                  "type":  "main",
+                                                                  "index":  0
+                                                              }
+                                                          ]
+                                                      ]
+                                         },
+                        "Validate the text":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Text Classifier",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Text Classifier":  {
+                                                "main":  [
+                                                             [
+                                                                 {
+                                                                     "node":  "Parse Post \u0026 Extract Metrics",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ],
+                                                             [
+                                                                 {
+                                                                     "node":  "Review Agent",
+                                                                     "type":  "main",
+                                                                     "index":  0
+                                                                 }
+                                                             ]
+                                                         ]
+                                            },
+                        "OpenAI Chat Model":  {
+                                                  "ai_languageModel":  [
+                                                                           [
+                                                                               {
+                                                                                   "node":  "Text Classifier",
+                                                                                   "type":  "ai_languageModel",
+                                                                                   "index":  0
+                                                                               }
+                                                                           ]
+                                                                       ]
+                                              },
+                        "Review Agent":  {
+                                             "main":  [
+                                                          [
+                                                              {
+                                                                  "node":  "Normalize inputs",
+                                                                  "type":  "main",
+                                                                  "index":  0
+                                                              }
+                                                          ]
+                                                      ]
+                                         },
+                        "Normalize inputs":  {
+                                                 "main":  [
+                                                              [
+                                                                  {
+                                                                      "node":  "Set the raw input",
+                                                                      "type":  "main",
+                                                                      "index":  0
+                                                                  }
+                                                              ]
+                                                          ]
+                                             },
+                        "Publish in LinkedIn":  {
+                                                    "main":  [
+                                                                 [
+                                                                     {
+                                                                         "node":  "Cost data to sent",
+                                                                         "type":  "main",
+                                                                         "index":  0
+                                                                     }
+                                                                 ]
+                                                             ]
+                                                },
+                        "Cost data to sent":  {
+                                                  "main":  [
+                                                               [
+                                                                   {
+                                                                       "node":  "Call COST logger workflow",
+                                                                       "type":  "main",
+                                                                       "index":  0
+                                                                   }
+                                                               ]
+                                                           ]
+                                              },
+                        "Get the image":  {
+                                              "main":  [
+                                                           [
+                                                               {
+                                                                   "node":  "Publish in LinkedIn",
+                                                                   "type":  "main",
+                                                                   "index":  0
+                                                               }
+                                                           ]
+                                                       ]
+                                          },
+                        "Parse Post \u0026 Extract Metrics":  {
+                                                                  "main":  [
+                                                                               {
+                                                                                   "node":  "Generate Dashboard HTML",
+                                                                                   "type":  "main",
+                                                                                   "index":  0
+                                                                               }
+                                                                           ]
+                                                              },
+                        "Generate Dashboard HTML":  {
+                                                        "main":  [
+                                                                     {
+                                                                         "node":  "Screenshot HTML",
+                                                                         "type":  "main",
+                                                                         "index":  0
+                                                                     }
+                                                                 ]
+                                                    },
+                        "Screenshot HTML":  {
+                                                "main":  [
+                                                             {
+                                                                 "node":  "Download Image",
+                                                                 "type":  "main",
+                                                                 "index":  0
+                                                             }
+                                                         ]
+                                            },
+                        "Download Image":  {
+                                               "main":  [
+                                                            {
+                                                                "node":  "Publish in LinkedIn",
+                                                                "type":  "main",
+                                                                "index":  0
+                                                            }
+                                                        ]
+                                           }
+                    },
+    "settings":  {
+                     "executionOrder":  "v1",
+                     "timeSavedMode":  "fixed",
+                     "callerPolicy":  "workflowsFromSameOwner",
+                     "availableInMCP":  false,
+                     "errorWorkflow":  "lTkGepfzTsk9vJn5GJBY-"
+                 },
+    "staticData":  null,
+    "meta":  {
+                 "templateCredsSetupCompleted":  true
+             },
+    "pinData":  {
+
+                },
+    "versionId":  "b89ac301-58f7-4433-9e37-1104165c720f",
+    "activeVersionId":  null,
+    "versionCounter":  137,
+    "triggerCount":  1,
+    "shared":  [
+                   {
+                       "updatedAt":  "2026-03-02T10:14:06.015Z",
+                       "createdAt":  "2026-03-02T10:14:06.015Z",
+                       "role":  "workflow:owner",
+                       "workflowId":  "BoxM5KzpOK5PmVpg",
+                       "projectId":  "wo6cl3YsDogSvDBn",
+                       "project":  {
+                                       "updatedAt":  "2025-11-04T15:36:51.820Z",
+                                       "createdAt":  "2025-11-04T15:33:17.658Z",
+                                       "id":  "wo6cl3YsDogSvDBn",
+                                       "name":  "Aliou Ba \u003cmamadou90ba@gmail.com\u003e",
+                                       "type":  "personal",
+                                       "icon":  null,
+                                       "description":  null,
+                                       "creatorId":  "5fccb6d9-b30d-4727-a195-da8dbb25f4a9",
+                                       "projectRelations":  [
+                                                                {
+                                                                    "updatedAt":  "2025-11-04T15:33:17.658Z",
+                                                                    "createdAt":  "2025-11-04T15:33:17.658Z",
+                                                                    "userId":  "5fccb6d9-b30d-4727-a195-da8dbb25f4a9",
+                                                                    "projectId":  "wo6cl3YsDogSvDBn",
+                                                                    "user":  {
+                                                                                 "updatedAt":  "2026-03-01T23:01:58.000Z",
+                                                                                 "createdAt":  "2025-11-04T15:33:17.094Z",
+                                                                                 "id":  "5fccb6d9-b30d-4727-a195-da8dbb25f4a9",
+                                                                                 "email":  "mamadou90ba@gmail.com",
+                                                                                 "firstName":  "Aliou",
+                                                                                 "lastName":  "Ba",
+                                                                                 "personalizationAnswers":  {
+                                                                                                                "version":  "v4",
+                                                                                                                "personalization_survey_submitted_at":  "2025-11-04T15:37:26.351Z",
+                                                                                                                "personalization_survey_n8n_version":  "1.118.1",
+                                                                                                                "companySize":  "\u003c20",
+                                                                                                                "companyType":  "saas",
+                                                                                                                "automationGoalSm":  [
+                                                                                                                                         "customer-communication"
+                                                                                                                                     ],
+                                                                                                                "role":  "sales-and-marketing",
+                                                                                                                "reportedSource":  "twitter"
+                                                                                                            },
+                                                                                 "settings":  {
+                                                                                                  "userActivated":  true,
+                                                                                                  "easyAIWorkflowOnboarded":  true,
+                                                                                                  "firstSuccessfulWorkflowId":  "j9svkbhh1fsHPfwp",
+                                                                                                  "userActivatedAt":  1765823839470,
+                                                                                                  "npsSurvey":  {
+                                                                                                                    "responded":  true,
+                                                                                                                    "lastShownAt":  1767801743225
+                                                                                                                }
+                                                                                              },
+                                                                                 "disabled":  false,
+                                                                                 "mfaEnabled":  false,
+                                                                                 "lastActiveAt":  "2026-03-01",
+                                                                                 "isPending":  false
+                                                                             }
+                                                                }
+                                                            ]
+                                   }
+                   }
+               ],
+    "tags":  [
+
+             ],
+    "activeVersion":  null
+}

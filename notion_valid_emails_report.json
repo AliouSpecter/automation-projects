@@ -1,0 +1,720 @@
+﻿{
+    "no_emails":  [
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-80d1-8983-c3f26a7891c5",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8100-8dce-dd104c361f03",
+                          "ftJobId":  "204QPXK",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8100-aaae-f5c004cc7f08",
+                          "ftJobId":  "204QPSR",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8100-ae29-de02a466c5ad",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8100-b3fc-f004b76b6bfb",
+                          "ftJobId":  "204QRMM",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8100-b630-d54e42082286",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8101-8615-e38776d628bd",
+                          "ftJobId":  "202NRWZ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8101-97ea-e44372ceb72a",
+                          "ftJobId":  "204ZXGL",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8101-9d84-e1149fe41ec6",
+                          "ftJobId":  "204SBPP",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8101-bcc5-ef51c28c9d03",
+                          "ftJobId":  "204QQJP",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8102-bd7c-de6bd479e5f8",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8103-97a1-d55f2e3dfab7",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8103-9d33-dc7b4b5f2669",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8104-980f-c970852aac4e",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8104-9844-e63261a8dbb8",
+                          "ftJobId":  "204MDYG",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8104-ac56-c7c5cf773dec",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8104-b9a4-d4fd1fc79bd5",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8105-9814-fbf7c19d51c3",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8105-a3f2-e66a04e7510c",
+                          "ftJobId":  "204DZSF",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8105-a849-fe6eb5ae80e6",
+                          "ftJobId":  "203XWJX",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8106-8fd3-c2485d5fab41",
+                          "ftJobId":  "204MDBM",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8106-99a1-e13c71db45b6",
+                          "ftJobId":  "204GSWR",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8106-a093-c3b1657fd416",
+                          "ftJobId":  "204JNCJ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8106-bc55-f2ee80c57a83",
+                          "ftJobId":  "204GSLJ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8107-83de-fb2c7f24fc0c",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8107-8ff7-c1ff97bc926f",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8107-a4b3-cf4fee720e0d",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8107-abe2-db35c2bcfbd0",
+                          "ftJobId":  "204YNSB",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8108-877b-e38d53092dec",
+                          "ftJobId":  "204JSXJ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8108-adf7-c6c20e5019a3",
+                          "ftJobId":  "204DGHS",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8109-8ad6-c22cdfa7bd9e",
+                          "ftJobId":  "203ZVKZ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8109-a85c-e8395f802a16",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8109-b12b-df7b35cb3b26",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8109-b1bc-ff74ddbee22a",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810a-b43a-ff5bdf147e69",
+                          "ftJobId":  "204XYQK",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810b-9559-fddca3b30363",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810b-aba6-e4a76a3d0592",
+                          "ftJobId":  "203ZVBR",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810c-92fa-e14c12262ec4",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810c-96d4-e783fc74eb79",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810c-a280-ec41df29aee1",
+                          "ftJobId":  "198YQLD",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810d-962c-d8368263d7dd",
+                          "ftJobId":  "204GSYH",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810e-831e-f557b34e77c0",
+                          "ftJobId":  "204GSVC",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810e-85fd-db9d39446f6c",
+                          "ftJobId":  "204QRLX",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810e-a75c-fa2eefb6f8c4",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810e-aa49-fb299dc5cf32",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810e-ac1d-eb20efeced56",
+                          "ftJobId":  "205DDST",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810f-9171-f41304278bff",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-810f-97e4-c0e080457d6c",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-810f-ba86-d89a0d40996a",
+                          "ftJobId":  "200BRPK",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8110-82a7-df6fb4fafaa0",
+                          "ftJobId":  "202NLYW",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8110-8fa9-f3d9c36fadae",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8110-9905-d8198b42d359",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8110-9a6e-c6f4d93d8277",
+                          "ftJobId":  "205CYMW",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8110-9b13-cef1c13d0ff4",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8110-9d22-c1c59febd5df",
+                          "ftJobId":  "203ZTZZ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8110-b0e3-ff6964b86c29",
+                          "ftJobId":  "204DNTZ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8111-9103-d7819d71337a",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8111-a763-e7ce4b17bed1",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8111-b75e-f3dcf7ba34b9",
+                          "ftJobId":  "203WVJQ",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8111-b8ab-ec6a359d2877",
+                          "ftJobId":  "205DRJP",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8112-8ac9-f322def1af8c",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8112-94a5-fd6b5d4ebcdd",
+                          "ftJobId":  "204YVRV",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8112-adbe-d8486c292115",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8112-b090-f274da0ca89e",
+                          "ftJobId":  "204JNDN",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8112-b731-e35eae00503f",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8114-987f-d822c6f221c6",
+                          "ftJobId":  "203RMTS",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8114-996f-e982d218e844",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8114-ad8f-fa5d584e00e1",
+                          "ftJobId":  "201HFJH",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8115-8983-e6e28628b275",
+                          "ftJobId":  "204YLPS",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8115-904a-f3152f16f4d7",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8115-9611-df2ff6f272c0",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8116-83a9-eb480bc8799b",
+                          "ftJobId":  "204XXVG",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8116-8c28-ff8dc9f675d8",
+                          "ftJobId":  "204QPWM",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8116-96b5-c4f581cf717b",
+                          "ftJobId":  "204TJBH",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8116-9cb0-f4f2b73e8ca9",
+                          "ftJobId":  "204ZXHC",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8116-a855-e0d597567bc5",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8116-b3c7-c4466bb14cc7",
+                          "ftJobId":  "204NLLF",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8117-9bf0-ef7557fa00b7",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8117-9eb6-de53cde6bcd0",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8117-a680-f90ee4dbb600",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8117-a748-fb000e44626d",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8118-86c7-edab18c01307",
+                          "ftJobId":  "204WFLV",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8118-8d78-c6d7e9e46e8b",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8118-9db3-fae8a15d67c9",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8118-b417-ff0f6b657aef",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-8118-b697-c351348ffe3d",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8119-94d1-c6b07b95d21e",
+                          "ftJobId":  "203TZSF",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8119-9886-c5da94726202",
+                          "ftJobId":  "203FWKV",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8119-a711-cf73bbc6e9d8",
+                          "ftJobId":  "204SRGC",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8119-a9c4-ee92a0d02179",
+                          "ftJobId":  "203PQMB",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-8119-b14f-f25bee376bfd",
+                          "ftJobId":  "204JMTH",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-811b-872d-dc19cd2978be",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-811b-8b7b-f76f83a69002",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-811b-9e79-ecba33f948c0",
+                          "ftJobId":  "204RYJP",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-811c-97fc-d7d6aaae9405",
+                          "ftJobId":  "204JNJR",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "id":  "31f8e6c9-f9d4-811c-a622-d45d91844059",
+                          "ftJobId":  "204JNBH",
+                          "name":  "",
+                          "company":  "",
+                          "email":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-811c-a8c0-cc816891c365",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-811d-9fe5-e1508c923f41",
+                          "company":  "",
+                          "ftJobId":  ""
+                      },
+                      {
+                          "email":  "",
+                          "name":  "",
+                          "id":  "31f8e6c9-f9d4-811d-a0bb-ca272014f9c4",
+                          "company":  "",
+                          "ftJobId":  ""
+                      }
+                  ],
+    "total_entries":  100,
+    "test_emails":  [
+
+                    ],
+    "timestamp":  "2026-03-11 18:25:26",
+    "invalid_emails":  [
+
+                       ],
+    "valid_emails":  [
+                         {
+                             "id":  "31f8e6c9-f9d4-811c-903a-e3d645efde03",
+                             "ftJobId":  "",
+                             "name":  "",
+                             "company":  "",
+                             "email":  "Issakha@xn--diakht-gva.com"
+                         }
+                     ],
+    "stats":  {
+                  "valid_count":  1,
+                  "no_email_count":  99,
+                  "test_count":  0,
+                  "invalid_count":  0
+              }
+}

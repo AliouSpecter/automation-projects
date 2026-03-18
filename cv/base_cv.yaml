@@ -1,0 +1,441 @@
+# ═══════════════════════════════════════════════════════════
+# CV MAÎTRE — Aliou BA
+# Source : PDFs fournis (10 versions FR + EN analysées)
+# Missions taguées : paid | traffic | growth
+# Priority : 1 = toujours | 2 = selon pertinence | 3 = si besoin volume
+# ═══════════════════════════════════════════════════════════
+
+contact:
+  name: "Aliou BA"
+  email: "mamadou90ba@gmail.com"
+  phone: "07 80 75 26 08"
+  linkedin: "https://bit.ly/3BzmnDI"
+  location: "Paris 11ème"
+
+# ───────────────────────────────────────────────────────────
+# ACCROCHE (varie selon le profil cible)
+# ───────────────────────────────────────────────────────────
+# Utilisées comme intro dans le CV — choisir selon le profil
+
+accroches:
+  paid_traffic: >
+    10 ans d'expérience en marketing digital, dont +6 ans en paid media
+    et gestion de stratégies d'acquisition multi-leviers. Budgets > 2,5M€/an.
+    Créateur d'agents IA en paid media.
+
+  growth: >
+    +10 ans en marketing digital | +6 ans en acquisition paid media et growth.
+    Budgets > 2,5M€/an. Créateur d'agents IA n8n.
+
+  generic_senior: >
+    10 ans d'expérience en marketing digital, dont +6 ans en paid media
+    et gestion de stratégies d'acquisition multi-leviers. Budgets > 2,5M€/an.
+    Créateur d'agents IA en paid media.
+
+  # Version anglaise
+  paid_traffic_en: >
+    Specialist in growth and performance marketing, with +5 years in paid media.
+    Budget > 1M€/year. Building AI agents in paid media.
+
+  growth_en: >
+    10+ years in digital marketing | 6+ years in paid media acquisition and growth.
+    Budget > 1M€/year. Building AI agents with n8n.
+
+# ───────────────────────────────────────────────────────────
+# EXPÉRIENCES
+# ───────────────────────────────────────────────────────────
+
+experiences:
+  # ── POSTE ACTUEL ────────────────────────────────────────
+  - company: "DiliTrust"
+    period: "Septembre 2024 – Présent"
+    period_en: "Since September 2024"
+    sector: "Legal Tech, SaaS B2B"
+    base_title: "Paid acquisition manager"
+    missions:
+      - id: dt1
+        fr: "Piloter l'acquisition paid media sur 4 continents sur les leviers SEA, Social Ads, Display et Affiliation"
+        en: "Lead B2B paid media strategy across 4 continents using LinkedIn Ads, Google Ads & Affiliation"
+        profiles: [paid, traffic]
+        priority: 1
+
+      - id: dt2
+        fr: "Gérer au quotidien les performances : leviers, budgets, enchères, ciblages"
+        en: "Run A/B tests on creatives, targeting and bidding strategies"
+        profiles: [paid, traffic]
+        priority: 1
+
+      - id: dt3
+        fr: "Tester et optimiser les perf. sur les créas, enchères et ciblage"
+        en: "Optimise acquisition funnels (landing pages, forms, messaging)"
+        profiles: [paid, traffic]
+        priority: 1
+
+      - id: dt4
+        fr: "Arbitrer les investissements et les priorités d'optimisation selon les besoins business des différents pays"
+        en: "Optimise performance-driven budgets + reports in Looker Studio"
+        profiles: [traffic, paid]
+        priority: 2
+
+      - id: dt5
+        fr: "Alimenter le pipeline MQL → SQL en lien avec les équipes sales"
+        en: "Feed the MQL → SQL pipeline in collaboration with the Sales team"
+        profiles: [growth, traffic]
+        priority: 2
+
+      - id: dt6
+        fr: "Déployer des campagnes ABM ciblant des grands comptes (Directions juridiques, Compliance, Risk & IT)"
+        en: "Deploy ABM campaigns targeting strategic enterprise accounts"
+        profiles: [growth]
+        priority: 2
+
+      - id: dt7
+        fr: "Construire et maintenir des workflows HubSpot (lead scoring, nurturing, segmentation) adaptés aux personas"
+        en: "Leverage AI agents & automation to improve testing + reporting"
+        profiles: [growth]
+        priority: 3
+
+      - id: dt8
+        fr: "Optimiser les funnels d'acquisition : landing pages, créas, formulaires et messages"
+        en: "Optimize acquisition funnels (landing pages, forms, messaging)"
+        profiles: [growth, traffic]
+        priority: 3
+
+      - id: dt9
+        fr: "Produire des agents IA pour optimiser ciblage & qualification"
+        en: "Leverage AI agents & automation to improve testing + reporting"
+        profiles: [growth, paid]
+        priority: 3
+
+    results: "-20% CPL | +30% demandes de demo"
+    results_en: "-20% CPL | +30% demo requests"
+    tools_used: ["Google Ads", "LinkedIn Ads", "Meta Ads", "Affiliation", "HubSpot", "GA4", "Looker Studio", "n8n"]
+
+  # ── FREELANCE ────────────────────────────────────────────
+  - company: "Auto-entrepreneur"
+    period: "Septembre 2022 – Juin 2024"
+    period_en: "September 2022 – June 2024"
+    sector: "E-commerce, Lead gen, B2B"
+    base_title_fr_paid: "Consultant freelance – Acquisition e-commerce"
+    base_title_fr_generic: "Consultant freelance – acquisition digitale"
+    base_title_en: "Freelance - Digital Marketing Consultant"
+    missions:
+      - id: fl1
+        fr: "Piloter la croissance d'entreprises e-commerce et lead gen via le paid media (Google Ads, Shopping, Meta Ads)"
+        en: "Drove growth for e-commerce + lead gen businesses through Google Ads (Search, Shopping, P-Max) and Meta Ads"
+        profiles: [paid, traffic]
+        priority: 1
+
+      - id: fl2
+        fr: "Suivre et optimiser au quotidien les performances : structure des comptes, enchères, mots clés, créas, flux produits"
+        en: "Optimise perf. daily: account structures, bidding strategies, keywords, creatives and product feeds"
+        profiles: [paid, traffic]
+        priority: 1
+
+      - id: fl3
+        fr: "Définir et optimiser des stratégies d'acquisition orientées ROI et efficacité des coûts pour mes clients"
+        en: "Defined and optimised acquisition strategies focused on ROI and cost efficiency"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: fl4
+        fr: "Produire des reportings et récos d'investissement par levier"
+        en: "Provided performance insights to guide media investment"
+        profiles: [traffic, paid]
+        priority: 2
+
+      - id: fl5
+        fr: "Analyser la performance et éclairer les décisions grâce à GA4 et Looker Studio"
+        en: "Delivered insights + automated reporting in Looker Studio + GA4"
+        profiles: [traffic, growth]
+        priority: 3
+
+    results: "+20% ventes | -30% coût par lead"
+    results_en: "+20% sales and -30% cost per lead"
+    tools_used: ["Google Ads", "Meta Ads", "GA4", "Looker Studio", "GTM"]
+
+  # ── SOS SAHEL ────────────────────────────────────────────
+  - company: "SOS SAHEL International France"
+    period: "Janvier 2020 – Juin 2022"
+    period_en: "January 2020 – June 2022"
+    sector: "ONG internationale"
+    base_title: "Traffic Manager"
+    missions:
+      - id: ss1
+        fr: "Définir et piloter la stratégie d'acquisition digitale : SEA, Social Ads, Display, Emailing"
+        en: "Ran multi-channel campaigns (SEA, Social Ads, Emailing) targeting donors, foundations and institutional partners"
+        profiles: [traffic, paid]
+        priority: 1
+
+      - id: ss2
+        fr: "Optimiser les performances et la répartition budgétaire des campagnes"
+        en: "Delivered data-driven performance reports and insights"
+        profiles: [traffic, paid]
+        priority: 1
+
+      - id: ss3
+        fr: "Suivi et reporting des KPIs clés : CPL, CAC, qualité des leads"
+        en: "Delivered data-driven reporting and actionable insights to stakeholders"
+        profiles: [traffic, paid, growth]
+        priority: 1
+
+      - id: ss4
+        fr: "Fournir des analyses et recommandations data-driven"
+        en: "Delivered data-driven reporting and actionable insights"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: ss5
+        fr: "Construire les workflows du CRM (nurturing, scoring, segmentation)"
+        en: "Manage automated lead workflows with Brevo + CRM tools"
+        profiles: [growth]
+        priority: 2
+
+      - id: ss6
+        fr: "Mise en place de messages adaptés aux différentes audiences"
+        en: "Implemented audience-specific messaging strategies"
+        profiles: [growth, traffic]
+        priority: 3
+
+    results: "+40% de revenu 2020 | +11% en 2021"
+    results_en: "+40% revenue growth (2020) | +11% (2021)"
+    tools_used: ["Google Ads", "Meta Ads", "Brevo", "GA4", "GTM", "Looker Studio"]
+
+  # ── D-EGDE ───────────────────────────────────────────────
+  - company: "D-egde (Agence web B2B)"
+    period: "Janvier 2019 – Décembre 2019"
+    period_en: "January 2019 – December 2019"
+    sector: "Agence web B2B, secteur hôtelier"
+    base_title: "Chef de projet SEO"
+    base_title_en: "SEO Project Manager"
+    missions:
+      - id: de1
+        fr: "Piloter la création et l'optimisation SEO des sites clients B2B"
+        en: "Led SEO optimisation and website creation for B2B clients"
+        profiles: [growth, traffic]
+        priority: 1
+
+      - id: de2
+        fr: "Réaliser des audits techniques SEO et définir les axes d'optimisation prioritaires"
+        en: "Conducted technical SEO audits and prioritised optimisation roadmaps"
+        profiles: [traffic, growth]
+        priority: 1
+
+      - id: de3
+        fr: "Conseiller les clients sur des stratégies de contenu orienté SEO (clusters, maillage, briefs)"
+        en: "Advised B2B clients on SEO content strategy: topic clusters, internal linking, editorial briefs"
+        profiles: [growth, traffic]
+        priority: 2
+
+      - id: de4
+        fr: "Suivre et analyser les performances organiques via GSC et SemRush : positions, trafic, CTR"
+        en: "Tracked and reported organic performance via GSC and SemRush: rankings, traffic, CTR"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: de5
+        fr: "Gérer les plannings et les livrables projets en autonomie"
+        en: "Managed project timelines and deliverables independently"
+        profiles: [traffic]
+        priority: 3
+
+    results: "+15 projets SEO livrés | +10 sites créés"
+    results_en: "15 SEO projects | 10 websites delivered"
+    tools_used: ["SemRush", "GSC", "WordPress", "Webflow"]
+
+  # ── E-CALEBASS ───────────────────────────────────────────
+  # Afficher uniquement si profil traffic ou growth avec dimension SEO/contenu/web
+  - company: "E-calebass"
+    period: "Juillet 2016 – Décembre 2018"
+    period_en: "July 2016 – December 2018"
+    sector: "Digital, e-commerce"
+    base_title: "Chargé de marketing digital"
+    base_title_en: "Digital Marketing Manager"
+    display_condition: "Afficher si l'offre mentionne SEO, contenu, web, acquisition digitale généraliste"
+    missions:
+      - id: ec1
+        fr: "Créer, refondre et optimiser des sites web clients (UX, performance, conversion)"
+        en: "Designed and optimised client websites for UX, performance and conversion"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: ec2
+        fr: "Piloter le SEO : audit technique, optimisation on-page, suivi des positions"
+        en: "Led SEO audits, on-page optimisation and position tracking"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: ec3
+        fr: "Mettre en place un plan de contenus SEO (clusters, briefs, calendrier éditorial)"
+        en: "Built SEO content plans (topic clusters, briefs, editorial calendar)"
+        profiles: [growth, traffic]
+        priority: 3
+
+      - id: ec4
+        fr: "Assurer la veille et le benchmark SEO / web : bonnes pratiques, outils, tendances"
+        en: "Ran SEO and web competitive benchmarking"
+        profiles: [traffic, growth]
+        priority: 3
+
+    tools_used: ["WordPress", "CSS", "SemRush", "GSC"]
+
+  # ── SAMA EVENT ───────────────────────────────────────────
+  - company: "Sama Event (Start-up évènementielle)"
+    period: "Janvier 2015 – Juillet 2016"
+    period_en: "January 2015 – July 2016"
+    sector: "Start-up évènementielle"
+    base_title: "Head of Growth & Co-fondateur"
+    missions:
+      - id: se1
+        fr: "Définir la stratégie digitale et le plan de croissance de la start-up"
+        en: "Defined the digital strategy and growth plan for the start-up"
+        profiles: [growth, traffic, paid]
+        priority: 1
+
+      - id: se2
+        fr: "Piloter les campagnes d'acquisition (paid et organique) pour attirer organisateurs et acheteurs"
+        en: "Ran acquisition campaigns (paid and organic) to attract event organisers and buyers"
+        profiles: [paid, traffic, growth]
+        priority: 1
+
+      - id: se3
+        fr: "Analyser l'audience et le trafic de la plateforme pour identifier les leviers de croissance"
+        en: "Analysed platform audience and traffic to identify growth levers"
+        profiles: [growth, traffic]
+        priority: 2
+
+      - id: se4
+        fr: "Gérer les budgets publicitaires et optimiser les campagnes de visibilité en ligne"
+        en: "Managed advertising budgets and optimised online visibility campaigns"
+        profiles: [paid, traffic]
+        priority: 2
+
+      - id: se5
+        fr: "Optimiser le référencement naturel et la présence digitale de la plateforme"
+        en: "Optimised the platform's SEO and overall digital presence"
+        profiles: [traffic, growth]
+        priority: 2
+
+      - id: se6
+        fr: "Veiller et prospecter les communautés d'organisateurs d'événements"
+        en: "Monitored and prospected event organiser communities"
+        profiles: [growth, traffic]
+        priority: 3
+
+      - id: se7
+        fr: "Coordonner les prestataires et partenaires événementiels"
+        en: "Coordinated event vendors and partners"
+        profiles: [growth]
+        priority: 3
+
+    results_note: "Qualités développées : persévérance, rigueur et autonomie"
+    tools_used: ["WordPress", "GSC", "Google Analytics"]
+
+# ───────────────────────────────────────────────────────────
+# COMPÉTENCES & OUTILS
+# ───────────────────────────────────────────────────────────
+
+skills:
+  paid_media:
+    label_fr: "Paid Media"
+    label_en: "Paid Media"
+    items:
+      - "SEA (Google Ads - Bing Ads)"
+      - "Meta Ads (Facebook, Instagram)"
+      - "LinkedIn Ads"
+      - "Display & Affiliation"
+
+  analytics:
+    label_fr: "Analytics & Reporting"
+    label_en: "Analytics & Tracking"
+    items:
+      - "Google Analytics 4"
+      - "Looker Studio"
+      - "Google Tag Manager"
+      - "Matomo"
+
+  cro_ab:
+    label_fr: "CRO - AB testing"
+    label_en: "AB test & CRO"
+    items:
+      - "A/B Testing enchères"
+      - "A/B Testing créas"
+      - "A/B Testing landing pages"
+      - "Veille / expérimentation"
+      - "Hotjar"
+
+  growth_crm:
+    label_fr: "CRM & Automation"
+    label_en: "CRM & Nurturing"
+    items:
+      - "HubSpot (segmentation, nurturing, scoring)"
+      - "E-mailing & nurturing (Brevo, Lemlist)"
+      - "Workflows & scoring"
+
+  ai_automation:
+    label_fr: "Agents IA & automatisation"
+    label_en: "AI agents automation"
+    items:
+      - "Agents IA paid media (ciblage, qualification)"
+      - "Lead scoring & qualification automatisée"
+      - "Reporting paid automatisé"
+      - "n8n / Zapier / Make"
+
+# ───────────────────────────────────────────────────────────
+# OUTILS VISUELS (bulles dans le CV original)
+# ───────────────────────────────────────────────────────────
+# Sélectionner selon le profil et l'offre
+
+tools_pool:
+  core: ["Google Ads Editor", "Google Analytics 4", "Looker Studio", "LinkedIn Ads Manager"]
+  paid_focus: ["Meta Ads", "Google Ads Editor", "LinkedIn Ads Manager", "Merchant Center"]
+  growth_focus: ["HubSpot", "Hotjar", "n8n", "Zapier", "Make", "Lemlist"]
+  analytics_focus: ["GA4", "Looker Studio", "GTM", "SemRush", "GSC", "Matomo"]
+  dev_tools: ["Webflow", "WordPress", "HTML5 / CSS3"]
+  collab: ["Monday", "Slack", "Salesforce"]
+
+# ───────────────────────────────────────────────────────────
+# FORMATION
+# ───────────────────────────────────────────────────────────
+
+education:
+  - degree: "MBA 2 Digital Marketing"
+    school: "PPA"
+    year: "2020"
+
+  - degree: "Master 1 en Marketing"
+    school: "IFACE"
+    year: "2015"
+
+  - degree: "Certification Google Ads for E-commerce"
+    school: "CXL"
+    year: "2023"
+
+  - degree: "Certification Google Analytics 4"
+    school: "CXL"
+    year: "2023"
+
+  - degree: "Content strategy and SEO for lead generation"
+    school: "CXL"
+    year: "2023"
+    profiles_only: [growth, traffic]   # N'afficher que pour ces profils
+
+# ───────────────────────────────────────────────────────────
+# LANGUES
+# ───────────────────────────────────────────────────────────
+
+languages:
+  - language: "Français"
+    level: "Natif"
+  - language: "Anglais"
+    level_paid_traffic: "Niveau professionnel"
+    level_growth: "Très bon niveau"
+    level_en: "Professional level"
+
+# ───────────────────────────────────────────────────────────
+# AUTRES ACTIVITÉS
+# ───────────────────────────────────────────────────────────
+
+other:
+  - "Bénévolat : Alternatiba - création de contenus illustrés sur la mobilité urbaine"
+  - "Culture test & learn, automatisation, IA marketing (générative et optimisation)"

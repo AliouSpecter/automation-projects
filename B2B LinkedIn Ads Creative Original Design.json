@@ -1,0 +1,649 @@
+{
+  "name": "B2B LinkedIn Ads Creative Original Design",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Créa par Industry",
+        "formDescription": "Envoyer les infos de branding de votre structure",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "offerUrl",
+              "placeholder": "url ton produit ",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "brandKit",
+              "fieldType": "file",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "goal",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Awareness"
+                  },
+                  {
+                    "option": "Lead Gen"
+                  },
+                  {
+                    "option": "Retargeting"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "industry"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e70bee60-30bb-4f4f-8e0a-85583ea56d2d",
+      "name": "form_trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "position": [
+        80,
+        304
+      ],
+      "webhookId": "93d3959c-0237-4ef3-bbf4-fc684da917a3",
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "content": "# B2B LinkedIn Ads Creative - Persona Original Creative",
+        "height": 624,
+        "width": 3264,
+        "color": 4
+      },
+      "id": "0fd3e638-b54f-4694-9d1d-6073923a4695",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        176
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "={{ $('form_trigger').item.json.offerUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        512,
+        304
+      ],
+      "id": "37c3d39a-577b-4032-8368-ccaef406cfa9",
+      "name": "fetch_offer_page"
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "h1",
+              "cssSelector": "h1"
+            },
+            {
+              "key": "page_text",
+              "cssSelector": "body"
+            },
+            {
+              "key": "cta",
+              "cssSelector": "a,button"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        720,
+        304
+      ],
+      "id": "300fb172-088d-4688-a9bc-65851b17d251",
+      "name": "extract_offer_text"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      { \"text\": {{ JSON.stringify(\n\"À partir du texte, renvoie UNIQUEMENT un JSON strict avec: offerName, le persona, pain, value, proof, cta.\\n\" +\n\"Contexte: SaaS B2B (gouvernance, finance, RH, conformité, legal/procurement). Valeurs courtes, orientées ROI/risque. Pas de blabla.\\n\\n\" +\n\"Texte:\\n\" + $json.page_text\n      ) }} }\n    ]\n  }]\n}",
+        "options": {}
+      },
+      "id": "67c810cc-c77a-4a9d-b374-5ea666fde1c3",
+      "name": "extract_offer_fields",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        928,
+        304
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4yI8k5tUfkXBvLeg",
+          "name": "RelevanceAI Header Auth"
+        },
+        "googlePalmApi": {
+          "id": "GxUgssSRZHrovJgn",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "942e488e-42f6-41c9-8067-21cbf965bb42",
+              "name": "offerName",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().offerName }}",
+              "type": "string"
+            },
+            {
+              "id": "ba3cbd6a-7985-4684-b094-682bcb743678",
+              "name": "persona",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().persona }}",
+              "type": "string"
+            },
+            {
+              "id": "268f52bd-98b2-4e85-b185-a4718a6f33e5",
+              "name": "pain",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().pain }}",
+              "type": "string"
+            },
+            {
+              "id": "14d19e49-8947-42c0-b29e-7919892c1650",
+              "name": "value",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().value }}",
+              "type": "string"
+            },
+            {
+              "id": "80c9aff8-1278-4978-a919-02016374829b",
+              "name": "proof",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().proof }}",
+              "type": "string"
+            },
+            {
+              "id": "39aada76-c326-4e22-88d3-eaad7782dcf2",
+              "name": "cta",
+              "value": "={{ $json.candidates[0].content.parts[0].text.replace(/```json|```/g,'').trim().parseJson().cta }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1136,
+        304
+      ],
+      "id": "d9fbd055-026b-4a92-bec2-9b17399f0338",
+      "name": "extract_offer_fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2fcf84d7-4a17-4899-9bea-a7d3b6027acd",
+              "name": "prompt",
+              "type": "string",
+              "value": "={{\n\"Tu es un Directeur Artistique Senior spécialisé en LinkedIn Ads B2B (Single Image Sponsored Content), orienté performance.\\n\\n\" +\n\n\"Tu reçois des éléments de branding (logo + 1-2 visuels de marque). Ta mission : concevoir des créas best-in-class du secteur, modernes, premium, ultra lisibles sur mobile.\\n\\n\" +\n\n\"Objectif campagne : \" + ($json.goal || '') + \"\\n\" +\n\"Secteur : \" + ($json.industry || 'à inférer depuis la page offre') + \"\\n\\n\" +\n\n\"OFFRE (à intégrer dans le message) :\\n\" +\n\"- Nom : \" + ($node['extract_offer_fields1'].json.offerName || '') + \"\\n\" +\n\"- Persona détecté (priorité absolue) : \" + ($node['extract_offer_fields1'].json.persona || $node['extract_offer_fields1'].json.target || '') + \"\\n\" +\n\"- Pain : \" + ($node['extract_offer_fields1'].json.pain || '') + \"\\n\" +\n\"- Valeur : \" + ($node['extract_offer_fields1'].json.value || $node['extract_offer_fields1'].json.promise || '') + \"\\n\" +\n\"- Proof : \" + ($node['extract_offer_fields1'].json.proof || '') + \"\\n\" +\n\"- CTA : \" + ($node['extract_offer_fields1'].json.cta || '') + \"\\n\\n\" +\n\n\"Contraintes créa :\\n\" +\n\"- Mobile-first : hiérarchie forte, très peu de texte.\\n\" +\n\"- Ton : sobre, clair, orienté ROI / risque / temps gagné.\\n\" +\n\"- Pas de phrases longues, pas de jargon inutile.\\n\" +\n\"- Branding strict via couleurs/typos/style (NE PAS afficher le logo dans l’image : il est déjà visible sur LinkedIn).\\n\" +\n\"- Évite tout style 'template Canva' : rendu premium (grille, alignements nets, respirations, contrastes).\\n\\n\" +\n\n\"IMPORTANT (anti-générique + persona-first) :\\n\" +\n\"- Chaque variante doit être dédiée à 1 persona (ex: RH, Direction juridique, Achats, Finance) et mentionner 1 KPI/risque concret de ce persona.\\n\" +\n\"- Interdit : bénéfices génériques sans contexte persona.\\n\\n\" +\n\n\"IMPORTANT (anti-collage) :\\n\" +\n\"- Chaque variante = UNE SEULE créa (une seule image). Interdit : collage, grille, split-screen, multi-panneaux.\\n\\n\" +\n\n\"Tâche : propose 4 VARIANTES distinctes (A/B/C/D) réellement différentes (fond clair/sombre, humain vs UI, bandeau preuve vs badge preuve, layout centré vs asymétrique).\\n\\n\" +\n\n\"Sortie attendue : réponds UNIQUEMENT avec du JSON valide (pas de markdown, pas de texte avant/après).\\n\" +\n\"{\\n\" +\n'  \"variants\": [\\n' +\n\"    {\\n\" +\n'      \"id\": \"A\",\\n' +\n'      \"persona\": \"persona visé (RH/Juridique/Achats/Finance)\",\\n' +\n'      \"layout\": \"description précise des zones (header, body, proof, CTA), fond, formes, icônes, place de l’humain/UI\",\\n' +\n'      \"style\": \"mood, typographie (style + poids), contrastes, traitement visuel (UI/photo), règles d’alignement\",\\n' +\n'      \"onImageText\": {\\n' +\n'        \"headline\": \"max 6-8 mots\",\\n' +\n'        \"bullets\": [\"max 6 mots\", \"max 6 mots\"],\\n' +\n'        \"proofBadge\": \"max 5 mots\",\\n' +\n'        \"ctaButton\": \"2-4 mots\"\\n' +\n\"      },\\n\" +\n'      \"productionChecklist\": [\"contraste mobile\", \"marges\", \"pas de surcharge\", \"branding sans logo\", \"export 1:1 et 4:5\"],\\n' +\n'      \"imagePrompt\": \"PROMPT FINAL pour générer UNE SEULE image LinkedIn. Doit inclure: layout + style + le texte EXACT (headline/bullets/proof/cta) + consignes branding (palette/typo/style) + NO LOGO. Ajouter explicitement: no logo, no collage, no split panel, no grid.\"\\n' +\n\"    }\\n\" +\n\"  ]\\n\" +\n\"}\\n\"\n}}\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e05e0b35-a3aa-4239-805e-dc9dbbbbafbc",
+      "name": "build_prompt2",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        128,
+        512
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "jsCode": "async function main() {\n  const items = $input.all();\n\n  for (let i = 0; i < items.length; i++) {\n    const item = items[i];\n\n    // 1) Liste des binaires disponibles\n    const keys = Object.keys(item.binary ?? {});\n    if (!keys.length) continue;\n\n    // 2) Trouver le logo + 1-2 visuals (par nom de fichier)\n    const findByName = (needle) =>\n      keys.find(k => (item.binary[k]?.fileName || '').toLowerCase().includes(needle));\n\n    const logoKey = findByName('logo');\n\n    const visualKeys = keys\n      .filter(k => (item.binary[k]?.fileName || '').toLowerCase().includes('visual'))\n      .slice(0, 2);\n\n    // fallback si pas de match \"visual\"\n    const fallbackVisuals = keys.filter(k => k !== logoKey).slice(0, 2);\n\n    const selected = {\n      logoKey,\n      visualKeys: visualKeys.length ? visualKeys : fallbackVisuals,\n    };\n\n    // 3) Lire les vrais fichiers (filesystem mode) -> base64\n    const out = {};\n\n    if (selected.logoKey) {\n      const buf = await this.helpers.getBinaryDataBuffer(i, selected.logoKey);\n      out.logo = {\n        fileName: item.binary[selected.logoKey].fileName,\n        mimeType: item.binary[selected.logoKey].mimeType,\n        base64: buf.toString('base64'),\n      };\n    }\n\n    out.visuals = [];\n    for (const k of selected.visualKeys) {\n      const buf = await this.helpers.getBinaryDataBuffer(i, k);\n      out.visuals.push({\n        fileName: item.binary[k].fileName,\n        mimeType: item.binary[k].mimeType,\n        base64: buf.toString('base64'),\n      });\n    }\n\n    item.json.brandAssets = out; // <-- tu utiliseras ça dans le HTTP\n  }\n\n  return items;\n}\n\nreturn main();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        304,
+        304
+      ],
+      "id": "54b717a5-a626-4401-a40f-b6617d3d5abb",
+      "name": "select_brand_assets"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      { \"text\": {{ JSON.stringify($json.prompt) }} },\n\n      { \"text\": \"IMAGE 1 = LOGO. Tâche: contribuer à la détection de la palette (couleurs de marque). La typographie peut être absente ici.\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $node['select_brand_assets'].json.brandAssets.logo.mimeType }}\",\n          \"data\": \"{{ $node['select_brand_assets'].json.brandAssets.logo.base64 }}\"\n        }\n      },\n\n      { \"text\": \"IMAGE 2 = VISUAL-1 (contient du texte). Tâche: extraire 2–3 couleurs HEX dominantes (priorité CTA/UI) + recommandations typographiques: style (ex: sans-serif grotesk/humanist) + poids (Bold/Medium/Regular). Si la police exacte n’est pas certaine, propose 2–3 équivalents proches (Inter, Helvetica Now, Söhne, SF Pro, Neue Haas Grotesk). Ne copie aucun texte.\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $node['select_brand_assets'].json.brandAssets.visuals[0].mimeType }}\",\n          \"data\": \"{{ $node['select_brand_assets'].json.brandAssets.visuals[0].base64 }}\"\n        }\n      },\n\n      { \"text\": \"IMAGE 3 = VISUAL-2 (contient du texte). Même tâche que l’image 2. Utilise-la pour confirmer la palette et la typographie.\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $node['select_brand_assets'].json.brandAssets.visuals[1].mimeType }}\",\n          \"data\": \"{{ $node['select_brand_assets'].json.brandAssets.visuals[1].base64 }}\"\n        }\n      }\n    ]\n  }]\n}\n",
+        "options": {}
+      },
+      "id": "2b52770d-10af-4b9f-adf0-21d82a1faba8",
+      "name": "generate_ad_image_prompt1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        320,
+        512
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4yI8k5tUfkXBvLeg",
+          "name": "RelevanceAI Header Auth"
+        },
+        "googlePalmApi": {
+          "id": "GxUgssSRZHrovJgn",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googlePalmApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\n    \"parts\": [\n      { \"text\": \"{{ $json.imagePrompt }}\" },\n\n      { \"text\": \"IMAGE 1 = LOGO (branding)\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.logo.mimeType }}\",\n          \"data\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.logo.base64 }}\"\n        }\n      },\n\n      { \"text\": \"IMAGE 2 = VISUAL-1 (asset de marque)\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.visuals[0].mimeType }}\",\n          \"data\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.visuals[0].base64 }}\"\n        }\n      },\n\n      { \"text\": \"IMAGE 3 = VISUAL-2 (asset de marque)\" },\n      {\n        \"inline_data\": {\n          \"mime_type\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.visuals[1].mimeType }}\",\n          \"data\": \"{{ $item(0).$node['select_brand_assets'].json.brandAssets.visuals[1].base64 }}\"\n        }\n      }\n    ]\n  }]\n}\n",
+        "options": {}
+      },
+      "id": "6830f31f-8c10-454b-a618-85369c7fdc9c",
+      "name": "generate_ad_image1",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        768,
+        512
+      ],
+      "retryOnFail": true,
+      "typeVersion": 4.2,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "4yI8k5tUfkXBvLeg",
+          "name": "RelevanceAI Header Auth"
+        },
+        "googlePalmApi": {
+          "id": "GxUgssSRZHrovJgn",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "image_result",
+        "options": {}
+      },
+      "id": "63453e43-1a5c-4ead-a5c0-d792e16c71e8",
+      "name": "get_image1",
+      "type": "n8n-nodes-base.convertToFile",
+      "position": [
+        1728,
+        512
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "name": "={{ 'Cloned Ad #' + ($runIndex + 1) }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive",
+          "cachedResultName": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1UxkMELgeC5wmgxDn8ckaC6wwrVBMLsaC",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "id": "5cb1d88a-ccc8-4b8e-a46e-00d72a7bec5b",
+      "name": "upload_image1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        1952,
+        512
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "Kt4T5dfbFj72kFlT",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "524da01b-f8b9-4c2c-9e28-319455903e4d",
+              "name": "=image_result",
+              "type": "string",
+              "value": "={{ $json.candidates[0].content.parts.find(p => p.inlineData)?.inlineData?.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3687c4e6-7c5b-405e-b741-f70725dc2560",
+      "name": "set_result1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1296,
+        528
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f46e65cf-d695-4e2e-a64c-be500cd788dd",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "leftValue": "={{\n  // 1) pas de candidat / pas de contenu image\n  !$json.candidates?.[0]?.content?.parts?.some(p => p.inlineData?.data)\n  // 2) ou bien la génération n’a pas terminé normalement\n  || ($json.candidates?.[0]?.finishReason && $json.candidates[0].finishReason !== 'STOP')\n}}\n",
+              "rightValue": "true"
+            }
+          ],
+          "combinator": "or"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "a6018aaa-9760-4223-8708-e5f3fdffe75e",
+      "name": "check_if_prohibited1",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        992,
+        512
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6ce35747-3606-4113-a00c-4a2c75c62315",
+              "leftValue": "={{ $json.image_result }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1488,
+        528
+      ],
+      "id": "c28d43bd-0465-4ec2-8a3b-1c289bcdf7cf",
+      "name": "image_exists1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1) Récupère le texte brut renvoyé par Gemini (contient ```json ... ```)\nconst text = $node[\"generate_ad_image_prompt1\"].json.candidates[0].content.parts[0].text || \"\";\n\n// 2) Nettoie les fences ```json ... ```\nconst cleaned = text\n  .replace(/```json\\s*/i, \"\")\n  .replace(/```/g, \"\")\n  .trim();\n\n// 3) Parse le JSON\nconst obj = JSON.parse(cleaned);\n\n// 4) Transforme variants[] en items n8n (1 item = 1 prompt image)\nreturn (obj.variants || []).map(v => ({\n  json: {\n    variantId: v.id,\n    imagePrompt: v.imagePrompt,\n    onImageText: v.onImageText,\n    layout: v.layout,\n    style: v.style\n  }\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        528,
+        512
+      ],
+      "id": "55085e85-8caa-48bc-9cff-9593849c2c23",
+      "name": "split_variants_to_items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "form_trigger": {
+      "main": [
+        [
+          {
+            "node": "select_brand_assets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "fetch_offer_page": {
+      "main": [
+        [
+          {
+            "node": "extract_offer_text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract_offer_text": {
+      "main": [
+        [
+          {
+            "node": "extract_offer_fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract_offer_fields": {
+      "main": [
+        [
+          {
+            "node": "extract_offer_fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extract_offer_fields1": {
+      "main": [
+        [
+          {
+            "node": "build_prompt2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "build_prompt2": {
+      "main": [
+        [
+          {
+            "node": "generate_ad_image_prompt1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "select_brand_assets": {
+      "main": [
+        [
+          {
+            "node": "fetch_offer_page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "generate_ad_image_prompt1": {
+      "main": [
+        [
+          {
+            "node": "split_variants_to_items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "generate_ad_image1": {
+      "main": [
+        [
+          {
+            "node": "check_if_prohibited1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_image1": {
+      "main": [
+        [
+          {
+            "node": "upload_image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set_result1": {
+      "main": [
+        [
+          {
+            "node": "image_exists1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check_if_prohibited1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "set_result1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "image_exists1": {
+      "main": [
+        [
+          {
+            "node": "get_image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "split_variants_to_items": {
+      "main": [
+        [
+          {
+            "node": "generate_ad_image1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "a7b96a84-5e83-4e7b-92e0-fd1c0973d0a7",
+  "meta": {
+    "instanceId": "606e35954cf3106c9d4c9cabd73d6e61db9a87dfcef56edeeab7853200b2b7ec"
+  },
+  "id": "Oq8pFiaHRniNWUKS",
+  "tags": [
+    {
+      "updatedAt": "2026-02-23T23:09:07.307Z",
+      "createdAt": "2026-02-23T23:09:07.307Z",
+      "id": "2sil91x6a0C8tGbT",
+      "name": "Automation Act"
+    },
+    {
+      "updatedAt": "2026-01-28T15:53:48.549Z",
+      "createdAt": "2026-01-28T15:53:48.549Z",
+      "id": "7j0pnsvQoO3uT7us",
+      "name": "LinkedIn Ads"
+    }
+  ]
+}

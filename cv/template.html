@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--
+  CV TEMPLATE — Aliou BA
+  Design validé le 2026-03-06.
+  Zones dynamiques marquées par : <!-- ZONE: NOM -->
+
+  Règles de remplissage :
+  - Tous les accents doivent être encodés en HTML entities (é=&#233; à=&#224; è=&#232; etc.)
+  - Pas de tiret long (—) → utiliser &#8211; (en-dash) ou " - "
+  - Apostrophes → &#8217;
+  - Pour empêcher un retour à la ligne entre deux mots : &nbsp; entre eux
+  - Tiret non-sécable : &#8209; (ex: multi&#8209;canal)
+  - Bulles : 6 bulles en grille 3×2, + 1 bulle centrée en bas (class="bub-center")
+  - Expériences : distribuées par justify-content:space-between (ne pas ajouter de margin-bottom sur .exp)
+-->
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  /* ── MISE EN PAGE ──────────────────────────────────────────────────────────
+     zoom 0.86 : le contenu est rendu en 244x344mm puis Edge l'imprime en A4.
+     Ne pas modifier zoom, width, height sauf si le contenu déborde sur 2 pages.
+     Si débordement : réduire zoom de 0.01 et augmenter height de ~4mm.
+  ── */
+  @page { size: A4; margin: 0; }
+  html { zoom: 0.86; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    width: 244mm;
+    height: 344mm;
+    overflow: hidden;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 362px 1fr;
+    height: 344mm;
+    overflow: hidden;
+  }
+
+  /* ── COLONNE GAUCHE ── */
+  .col-left {
+    display: flex;
+    flex-direction: column;
+    height: 344mm;
+    overflow: hidden;
+  }
+
+  .title-box {
+    background: #1d7272;
+    color: #fff;
+    text-align: center;
+    padding: 20px 14px;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .left-inner {
+    padding: 17px 21px 14px 21px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .cv-name { font-size: 27px; font-weight: bold; margin-bottom: 10px; }
+
+  .cv-intro { font-size: 14px; line-height: 1.72; margin-bottom: 11px; }
+
+  .contact-line { font-size: 13.5px; color: #333; margin-bottom: 5px; }
+  .contact-line a { color: #1d7272; text-decoration: none; }
+
+  .left-h {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid #f5c000;
+    padding-bottom: 5px;
+    margin: 15px 0 9px 0;
+    letter-spacing: 0.4px;
+    flex-shrink: 0;
+  }
+
+  /* Catégories de compétences avec fond jaune pâle */
+  .skill-cat {
+    display: block;
+    font-weight: bold;
+    font-size: 14.5px;
+    background: #fdf0b0;
+    padding: 3.5px 9px;
+    margin: 8px 0 5px 0;
+  }
+
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 3px;
+    padding: 0 2px;
+    line-height: 1.5;
+  }
+
+  .stars { color: #c8a000; font-size: 12px; flex-shrink: 0; letter-spacing: 1.5px; }
+
+  /* Bulles outils — grille 3 colonnes */
+  .bubbles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    padding: 7px 0 5px;
+    justify-items: center;
+  }
+  .bub-center { grid-column: 2; }
+
+  .bub {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.35;
+    width: 70px;
+    height: 70px;
+    font-size: 10px;
+    padding: 7px;
+  }
+  .by { background: #f5c000; color: #1a1a1a; }  /* bulle jaune */
+  .bt { background: #2a9d9d; color: #fff; }      /* bulle teal */
+
+  .edu-line { font-size: 13.5px; line-height: 1.65; margin-bottom: 5px; }
+
+  /* ── COLONNE DROITE ── */
+  .col-right {
+    padding: 22px 25px 20px 22px;
+    border-left: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 344mm;
+    overflow: hidden;
+  }
+
+  .right-h {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1d7272;
+    letter-spacing: 0.4px;
+    margin-bottom: 13px;
+    flex-shrink: 0;
+  }
+
+  /* Expériences : espace distribué automatiquement entre chaque bloc */
+  .exps {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .exp-title {
+    display: inline-block;
+    background: #f5c000;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 3px 12px;
+    margin-bottom: 5px;
+  }
+
+  .exp-co {
+    font-size: 14px;
+    color: #2a9d9d;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  ul { padding-left: 18px; margin: 3px 0; }
+  li { font-size: 14.5px; margin-bottom: 3px; line-height: 1.6; }
+
+  .exp-res { font-weight: bold; font-size: 14px; margin-top: 5px; }
+
+  .autres-box { background: #f0f0f0; padding: 10px 14px; }
+  .autres-h { font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+  .autres-box li { font-size: 12.5px; margin-bottom: 3px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COLONNE GAUCHE -->
+  <div class="col-left">
+
+    <!-- ZONE: TITRE_POSTE — titre exact de l'offre (ex: "Media Buyer", "Traffic Manager") -->
+    <div class="title-box">TITRE_POSTE</div>
+
+    <div class="left-inner">
+
+      <div class="cv-name">Aliou BA</div>
+
+      <!-- ZONE: INTRO — 3 lignes :
+           1. Accroche séniorité (choisir dans base_cv.yaml > accroches selon profil)
+           2. Tagline bold (adapter selon l'offre, empêcher coupure sur les groupes de mots avec &nbsp;)
+           3. Ligne IA / différenciateur
+      -->
+      <div class="cv-intro">
+        ACCROCHE_LIGNE1<br>
+        <strong>TAGLINE_BOLD</strong><br>
+        LIGNE_IA
+      </div>
+
+      <!-- ZONE: CONTACT — fixe, ne pas modifier -->
+      <div class="contact-line">&#128205; Paris 11&#232;me &nbsp;|&nbsp; <a href="https://bit.ly/3BzmnDI">in : linkedin.com/in/aliou-ba</a></div>
+      <div class="contact-line">&#128222; 07 80 75 26 08 &#8211; mamadou90ba@gmail.com</div>
+
+      <div class="left-h">Comp&#233;tences cl&#233;s</div>
+
+      <!-- ZONE: COMPETENCES — 3 catégories, choisir selon profil dans base_cv.yaml > skills
+           Nombre de lignes par catégorie : 3-4 max pour tenir sur la page
+           Étoiles : ★=&#9733; ☆=&#9734; — utiliser 4-5 étoiles uniquement
+      -->
+      <span class="skill-cat">CAT_1_LABEL</span>
+      <!-- skill-row × N -->
+
+      <span class="skill-cat">CAT_2_LABEL</span>
+      <!-- skill-row × N -->
+
+      <span class="skill-cat">CAT_3_LABEL</span>
+      <!-- skill-row × N -->
+
+      <div class="left-h">Mes outils de travail</div>
+
+      <!-- ZONE: BUBBLES — 7 outils max (6 en grille 3×2 + 1 centré en bas avec class="bub-center")
+           Alterner .by (jaune) et .bt (teal) selon tools_pool dans base_cv.yaml
+      -->
+      <div class="bubbles">
+        <!-- 6 bulles normales + 1 bub-center -->
+      </div>
+
+      <!-- ZONE: FORMATIONS — fixe sauf si profil précise profiles_only -->
+      <div class="left-h" style="margin-top:13px;">Formations</div>
+      <div class="edu-line">PPA : MBA 2 Digital Marketing &#8211; 2020</div>
+      <div class="edu-line">IFACE : Master 1 en Marketing &#8211; 2015</div>
+      <div class="edu-line" style="font-size:12px;">Certification Google Ads for E-commerce &#8211; CXL | 2023</div>
+      <div class="edu-line" style="font-size:12px;">Certification Google Analytics 4 &#8211; CXL | 2023</div>
+
+      <div class="left-h" style="margin-top:13px;">Langues</div>
+      <div class="edu-line"><strong>Anglais :</strong> niveau professionnel</div>
+      <div class="edu-line">Fran&#231;ais : natif</div>
+
+    </div>
+  </div>
+
+  <!-- COLONNE DROITE -->
+  <div class="col-right">
+    <div class="right-h">Exp&#233;riences</div>
+    <div class="exps">
+
+      <!-- ZONE: EXPERIENCES — blocs .exp dans l'ordre chronologique inverse
+           Structure de chaque bloc :
+           <div class="exp">
+             <div class="exp-title">TITRE_POSTE_TENU</div>
+             <div class="exp-co">ENTREPRISE | PÉRIODE</div>
+             <ul>
+               <li>Mission sélectionnée selon profil et priority</li>
+               ...
+             </ul>
+             <div class="exp-res">=> Résultats : CHIFFRE1 | CHIFFRE2</div>
+           </div>
+
+           Nombre de missions par expérience :
+           - Poste actuel (DiliTrust) : 4-5 missions
+           - Freelance : 3-4 missions
+           - SOS SAHEL : 3 missions
+           - D-egde : 2 missions
+           - Sama Event : 2 missions (pas de résultats)
+
+           Si une expérience n'a pas de résultats chiffrés : omettre .exp-res
+      -->
+
+      <!-- ZONE: AUTRES_ACTIVITES — fixe, ne pas modifier -->
+      <div class="autres-box">
+        <div class="autres-h">Autres activit&#233;s</div>
+        <ul>
+          <li>B&#233;n&#233;volat : Alternatiba &#8211; cr&#233;ation de contenus illustr&#233;s sur la mobilit&#233; urbaine</li>
+          <li>Culture test &amp; learn, automatisation, IA marketing (g&#233;n&#233;rative et optimisation)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
