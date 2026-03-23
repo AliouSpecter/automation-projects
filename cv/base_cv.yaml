@@ -243,6 +243,38 @@ experiences:
     results_en: "15 SEO projects | 10 websites delivered"
     tools_used: ["SemRush", "GSC", "WordPress", "Webflow"]
 
+  # ── OBJETS BIEN FAITS ────────────────────────────────────
+  # Afficher uniquement si l'offre mentionne e-commerce, Shopify, Klaviyo, CRM, mode/lifestyle
+  - company: "Objets Bien Faits"
+    period: "Janvier 2023 – Présent"
+    period_en: "Since January 2023"
+    sector: "E-commerce mode"
+    base_title: "Traffic Manager E-commerce (mi-temps)"
+    base_title_en: "E-commerce Traffic Manager (part-time)"
+    display_condition: "Afficher si l'offre mentionne e-commerce, Shopify, Klaviyo, CRM e-commerce, mode/lifestyle, conversion"
+    missions:
+      - id: obf1
+        fr: "Piloter le trafic e-commerce multi-canal : SEO, SEA, paid social et affiliation"
+        en: "Drive e-commerce traffic across channels: SEO, SEA, paid social and affiliation"
+        profiles: [traffic, growth, paid]
+        priority: 1
+
+      - id: obf2
+        fr: "Concevoir les opérations commerciales : cross-selling, pop-up et automation Klaviyo"
+        en: "Design commercial ops: cross-selling, pop-up and Klaviyo automation"
+        profiles: [growth, traffic]
+        priority: 1
+
+      - id: obf3
+        fr: "Construire la stratégie de contenu SEO : mots-clés, clusters, calendrier éditorial"
+        en: "Build SEO content strategy: keywords, clusters, editorial calendar"
+        profiles: [traffic, growth]
+        priority: 2
+
+    results: "+250% CA | +2% taux de conversion"
+    results_en: "+250% revenue | +2% conversion rate"
+    tools_used: ["Shopify", "Klaviyo", "Google Ads", "Meta Ads", "GA4", "SemRush"]
+
   # ── E-CALEBASS ───────────────────────────────────────────
   # Afficher uniquement si profil traffic ou growth avec dimension SEO/contenu/web
   - company: "E-calebass"

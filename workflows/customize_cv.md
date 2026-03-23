@@ -40,6 +40,31 @@ Lire le texte de l'offre et extraire :
 
 ---
 
+## Étape 2b — Évaluer le fit avant de continuer
+
+**Priorité de profil (du plus fort au plus faible taux de retour) :**
+1. `paid_acquisition` — sweet spot principal
+2. `traffic_manager` — fort taux de retour
+3. `digital_marketing_manager` — candidatable si paid est présent
+4. `growth_manager` — uniquement si l'automatisation IA est centrale dans l'offre
+
+**Seuils NO-GO — déconseiller explicitement de candidater si :**
+- L'offre mentionne explicitement **"peu de paid"** ou **"pas de paid"** comme mode principal d'acquisition
+- Le contexte est **radicalement absent du CV** : creator economy, product-led growth pur, RevOps pur sans HubSpot/paid, programmatic (DV360, TTD), SEM agence avec SA 360 obligatoire
+- **2 compétences clés structurelles** sont absentes (pas juste des outils, mais des dimensions entières du rôle)
+- L'offre cible un secteur très spécifique (finance, legal, médical) avec expertise métier requise que le CV ne couvre pas
+
+**Seuils NUANCE — candidater avec mise en garde si :**
+- 1 outil clé manquant (SA 360, Yotpo, Simio...) → assumable en entretien
+- Contexte légèrement différent (annonceur vs agence, B2B vs B2C) → compensable
+
+**Format de l'alerte NO-GO :**
+> ❌ Je déconseille cette candidature. [Raison en 1-2 phrases]. Tu as de meilleures chances sur des offres paid media directes.
+
+Ne pas générer le CV si NO-GO, sauf si l'utilisateur confirme vouloir quand même postuler.
+
+---
+
 ## Étape 3 — Choisir le profil
 
 Lire `cv/profiles.yaml` pour la logique complète. Règles de décision :

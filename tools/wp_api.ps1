@@ -48,10 +48,11 @@ switch ($cmd) {
         $post.content.rendered
     }
     "create" {
-        $html = Get-Content $arg2 -Raw -Encoding UTF8
-        $obj  = [ordered]@{ title = $arg1; content = $html; status = "draft" }
-        $body = $obj | ConvertTo-Json -Depth 5 -Compress
-        $bodyBytes = [System.Text.Encoding]::UTF8.GetBytes($body)
+        $html        = [System.IO.File]::ReadAllText((Resolve-Path $arg2), [System.Text.Encoding]::UTF8)
+        $jsonTitle   = $arg1   | ConvertTo-Json -Compress
+        $jsonContent = $html   | ConvertTo-Json -Compress
+        $body        = "{""title"":$jsonTitle,""content"":$jsonContent,""status"":""draft""}"
+        $bodyBytes   = [System.Text.Encoding]::UTF8.GetBytes($body)
         $r = Invoke-RestMethod -Method POST -Uri "$WP_URL/wp-json/wp/v2/posts" -Headers $headers -Body $bodyBytes
         Write-Host "Created draft post:"
         Write-Host "  ID   : $($r.id)"

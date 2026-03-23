@@ -63,6 +63,7 @@ paid_acquisition:
   highlight_skills: [paid_media, analytics, cro_ab]
   tools_highlight: ["Google Ads Editor", "LinkedIn Ads Manager", "Meta Ads", "Google Analytics 4", "Looker Studio"]
   decision_keywords_fr:
+    - "paid media manager"   # priorité 1 — signal fort, sélectionner ce profil sans hésitation
     - "paid acquisition"
     - "paid media"
     - "acquisition specialist"
@@ -199,7 +200,7 @@ english_profiles:
 # ───────────────────────────────────────────────────────────
 
 decision_table:
-  - signal: "paid / acquisition / ROAS / CPA / SMA / paid social / media buyer / performance"
+  - signal: "paid media manager / paid acquisition / ROAS / CPA / SMA / paid social / media buyer / performance"
     profile: "paid_acquisition"
     confidence: "high"
   - signal: "traffic / trafic / SEA / campagnes / responsable SEA / acquisition payante"

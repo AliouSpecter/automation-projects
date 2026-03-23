@@ -86,6 +86,56 @@ Celui qui répond en premier a 80% de chances de signer.
 Les courtiers qui rappellent en 24h ne parlent plus qu'aux prospects que personne d'autre n'a voulu.
 Sans réponse automatique < 5 min, tout le reste (qualification, relances, renouvellements) ne sert à rien.
 
+## Prospection France Travail
+
+**Workflow n8n :** Signal Scraping - France Travail (`LXLfYd3JVNko68g9`)
+
+### Paramètres de recherche
+| Paramètre | Valeur |
+|---|---|
+| `motsCles` | `gestionnaire assurance` (ou voir alternatives ci-dessous) |
+| `secteurActivite` | `66` (activités auxiliaires assurance/courtage) |
+| `typeContrat` | `CDI,CDD` |
+| `minCreationDate` | dynamique — 30 derniers jours |
+
+### Intitulés de poste recommandés
+| Priorité | motsCles | Signal |
+|---|---|---|
+| ✅ 1 | `gestionnaire assurance` | Noyé dans le manuel |
+| ✅ 2 | `chargé de clientèle assurance` | Gestion leads & suivi devis |
+| ✅ 3 | `assistant courtage` | Cabinet en croissance non automatisé |
+| ✅ 4 | `gestionnaire contrats assurance` | Relances & renouvellements manuels |
+| 🟡 5 | `conseiller assurance` | Plus large, cabinet qui recrute = budget |
+| 🟡 6 | `chargé de production assurance` | Back-office courtage, volume élevé |
+
+**À éviter :** `courtier` (indépendants), `inspecteur assurance` (grands groupes), `actuaire`
+
+### Score de pertinence /100
+| Critère | Points |
+|---|---|
+| Nom entreprise contient "courtage" ou "courtier" | +20 |
+| Titre : Directeur / DG | +20 |
+| Titre : Responsable | +15 |
+| Titre : Gestionnaire | +10 |
+| Titre : Souscripteur / Collaborateur / Chargé | +8 |
+| CDI | +10 |
+| Fraîcheur offre (max 20 jours) | jusqu'à +20 |
+| Nom entreprise contient "assurance" ou "cabinet" | +10 |
+
+**Seuils :** Haute ≥ 60 · Moyenne ≥ 35 · Faible < 35
+Visible dans le champ **Notes** de Notion : `Pertinence: Haute (72/100)`
+
+### Exclusions automatiques (filtrées dans Format Results)
+- **Cabinets RH :** Robert Walters, Hays, Fed Group, Gi Group, Page Personnel, Manpower, Adecco, Randstad, Synergie, Proman, Michael Page...
+- **Grands groupes :** Allianz, AXA, Henner, Malakoff Humanis, APICIL, Groupama, MAAF, MACIF, MMA, Generali, AG2R, Swiss Life, Verspieren...
+- **Hors cible :** rent a car, expertise automobile, retraite, pompes funèbres
+
+### Notion
+- **Base :** `NOTION_PROSPECTS_DB_ID`
+- **Secteur :** hardcodé `Courtage` dans le nœud Notion (ne pas utiliser `secteurActiviteLibelle` de FT)
+- **Déduplication :** via champ `ftJobId`
+- **Résultats triés** par score décroissant
+
 ## ROI principal
 - Taux de contact lead x3 (réponse < 5 min vs 24-48h)
 - -60% relances manuelles sur devis
